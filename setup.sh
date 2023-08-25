@@ -1,0 +1,2 @@
+stow nvim
+stow homebrew
