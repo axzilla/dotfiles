@@ -34,3 +34,5 @@ function nvims() {
 
 # bindkey -s ^a "nvims\n"
 # Neovim Switcher End
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
