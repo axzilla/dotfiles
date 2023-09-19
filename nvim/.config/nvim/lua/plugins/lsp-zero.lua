@@ -102,7 +102,7 @@ return {
             { desc = '[W]orkspace [S]ymbols' })
 
         require("mason-lspconfig").setup {
-            ensure_installed = { "cssls", "lua_ls", "gopls", 'tsserver', 'clangd' }
+            ensure_installed = { "cssls", "lua_ls", "gopls", 'tsserver', 'clangd', 'astro' }
         }
     end
 }
