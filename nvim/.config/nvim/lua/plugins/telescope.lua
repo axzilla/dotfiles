@@ -16,5 +16,6 @@ return {
         vim.keymap.set('n', '<leader>fG', builtin.git_files, { desc = 'Find git' })
         vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
         vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Find oldfiles' })
+        vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = 'Find jumplist' })
     end
 }
