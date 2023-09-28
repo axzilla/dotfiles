@@ -8,6 +8,7 @@ return {
     config = function()
         local builtin = require('telescope.builtin')
 
+        -- builtins
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
@@ -17,5 +18,8 @@ return {
         vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
         vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Find oldfiles' })
         vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = 'Find jumplist' })
+
+        -- plugins
+        vim.keymap.set('n', '<leader>fn', '<cmd>NoiceTelescope<cr>', { desc = 'Find Noice' })
     end
 }
