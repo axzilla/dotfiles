@@ -1,20 +1,18 @@
 return {
-    -- 'navarasu/onedark.nvim',
-    -- priority = 1000,
-    -- config = function()
-    --     require('onedark').setup {
-    --         style = 'darker'
-    --     }
-    --     require('onedark').load()
-    -- end
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+        require("catppuccin").setup({
+            color_overrides = {
+                mocha = {
+                    base = "#000000",
+                    mantle = "#000000",
+                    crust = "#000000",
+                },
+            },
+        })
 
-    -- add gruvbox
-    { "ellisonleao/gruvbox.nvim" },
-    -- Configure LazyVim to load gruvbox
-    {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "gruvbox",
-        },
-    },
+        vim.cmd.colorscheme "catppuccin"
+    end
 }
