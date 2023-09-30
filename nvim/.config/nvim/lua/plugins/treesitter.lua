@@ -1,10 +1,10 @@
 return {
-    'nvim-treesitter/nvim-treesitter',
-    config = function()
-        require('nvim-treesitter.configs').setup {
-            ensure_installed = { 'astro', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc',
-                'vim', 'html', 'svelte' },
-            highlight = { enable = true }
-        }
-    end
+  'nvim-treesitter/nvim-treesitter',
+  config = function()
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = { 'astro', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc',
+        'vim', 'html', 'svelte' },
+      highlight = { enable = true }
+    }
+  end
 }
