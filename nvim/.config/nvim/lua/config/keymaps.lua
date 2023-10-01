@@ -13,3 +13,7 @@ vim.keymap.set('n', '<leader>o', function()
   end
   print("Hello")
 end, { desc = 'Toggle Explorer Focus' })
+
+-- Buffer
+vim.keymap.set('n', '[b', '<Cmd>bprevious<CR>', { desc = 'Prev buffer' })
+vim.keymap.set('n', ']b', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
