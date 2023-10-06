@@ -12,8 +12,11 @@ return {
     wk.register({
       ["<leader>u"] = { name = "UI/UX",
         -- f = { "<cmd>IrgendeinBefehl<CR>", "Beschreibung für af" },
-        -- a = { "<cmd>EinAndererBefehl<CR>", "Beschreibung für aa" },
-      }
+      },
+      ["<leader>d"] = { name = "Debugger" },
+      ["<leader>l"] = { name = "LSP" },
+      ["<leader>g"] = { name = "Git" },
+      ["<leader>f"] = { name = "Find/Telescope" }
     })
   end
 }

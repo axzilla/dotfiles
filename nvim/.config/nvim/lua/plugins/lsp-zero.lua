@@ -3,21 +3,21 @@ return {
   branch = 'v2.x',
   dependencies = {
     -- LSP Support
-    { 'neovim/nvim-lspconfig' },                 -- Required
-    { 'williamboman/mason.nvim' },               -- Optional
-    { 'williamboman/mason-lspconfig.nvim' },     -- Optional
+    { 'neovim/nvim-lspconfig' },             -- Required
+    { 'williamboman/mason.nvim' },           -- Optional
+    { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
     -- Autocompletion
-    { 'hrsh7th/nvim-cmp' },             -- Required
-    { 'hrsh7th/cmp-nvim-lsp' },         -- Required
-    { 'hrsh7th/cmp-buffer' },           -- Optional
-    { 'hrsh7th/cmp-path' },             -- Optional
-    { 'saadparwaiz1/cmp_luasnip' },     -- Optional
-    { 'hrsh7th/cmp-nvim-lua' },         -- Optional
+    { 'hrsh7th/nvim-cmp' },         -- Required
+    { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+    { 'hrsh7th/cmp-buffer' },       -- Optional
+    { 'hrsh7th/cmp-path' },         -- Optional
+    { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+    { 'hrsh7th/cmp-nvim-lua' },     -- Optional
 
     -- Snippets
-    { 'L3MON4D3/LuaSnip' },                -- Required
-    { 'rafamadriz/friendly-snippets' }     -- Optional
+    { 'L3MON4D3/LuaSnip' },            -- Required
+    { 'rafamadriz/friendly-snippets' } -- Optional
   },
   config = function()
     local lsp = require('lsp-zero').preset({})
@@ -90,15 +90,15 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
+    vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
+    vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences' })
     vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplementation' })
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type [D]efinition' })
-    vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols,
+    vim.keymap.set('n', '<leader>lD', vim.lsp.buf.type_definition, { desc = 'Type [D]efinition' })
+    vim.keymap.set('n', '<leader>ld', require('telescope.builtin').lsp_document_symbols,
       { desc = '[D]ocument [S]ymbols' })
-    vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+    vim.keymap.set('n', '<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols,
       { desc = '[W]orkspace [S]ymbols' })
 
     require("mason-lspconfig").setup {
