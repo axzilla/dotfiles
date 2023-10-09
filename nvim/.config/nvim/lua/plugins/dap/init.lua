@@ -8,6 +8,7 @@ return {
     {
       "microsoft/vscode-js-debug",
       version = "1.x",
+      -- HACK: Had to install it manually!
       run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
     }
   },

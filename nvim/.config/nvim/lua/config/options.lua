@@ -21,7 +21,6 @@ o.updatetime = 250          -- length of time to wait before triggering the plug
 o.wrap = false              -- disable line wrap
 -- o.fillchars = { eob = " " } -- disable `~` on nonexistent lines // TODO: changes weird colors on indent-blankline plugin
 
-
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
