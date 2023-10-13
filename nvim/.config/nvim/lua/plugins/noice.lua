@@ -1,5 +1,5 @@
 return {
-  cond = false,
+  cond = true,
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
