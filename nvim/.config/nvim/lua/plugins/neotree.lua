@@ -1,5 +1,5 @@
 return {
-  cond = false,
+  cond = true,
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
@@ -20,5 +20,15 @@ return {
       },
     })
     vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle NeoTree' })
+
+    -- Neo-tree // TODO: Back to buffer doesn't work!
+    vim.keymap.set('n', '<leader>o', function()
+      if vim.bo.filetype == "neotree" then
+        vim.cmd("wincmd p")
+      else
+        vim.cmd("Neotree focus")
+      end
+      print("Hello")
+    end, { desc = 'Toggle Explorer Focus' })
   end
 }
