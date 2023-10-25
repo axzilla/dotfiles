@@ -1,3 +1,2 @@
-AstroNvim v3.37.6
-LazyVim v10.2.0
-kickstart
+AstroNvim v3.37.7
+LazyVim v10.5.0
