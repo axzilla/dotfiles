@@ -1,7 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 brew "fzf"
-brew "helix"
 brew "lazygit"
 brew "neovim"
 brew "node"
