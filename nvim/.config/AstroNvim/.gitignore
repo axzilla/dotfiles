@@ -6,7 +6,7 @@ colors
 docs
 ftplugin
 ginit.vim
-lua/user
+# lua/user
 neoconf.json
 plugin
 queries
