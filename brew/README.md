@@ -1,0 +1,2 @@
+- Overwrite Brewfile `brew bundle dump --force`
+- Install from Brewfile `brew bundle install`
