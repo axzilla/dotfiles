@@ -11,7 +11,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "kanagawa",
+    colorscheme = "kanagawa-dragon",
     -- colorscheme = "oxocarbon",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
