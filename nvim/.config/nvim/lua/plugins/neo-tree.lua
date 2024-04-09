@@ -6,6 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
+    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
     require("neo-tree").setup({
@@ -19,16 +20,14 @@ return {
         follow_current_file = { enabled = true },
       },
     })
-    vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle NeoTree' })
 
-    -- Neo-tree // TODO: Back to buffer doesn't work!
-    vim.keymap.set('n', '<leader>o', function()
-      if vim.bo.filetype == "neotree" then
-        vim.cmd("wincmd p")
+    vim.keymap.set('n', '<Leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer' })
+    vim.keymap.set('n', '<Leader>o', function()
+      if vim.bo.filetype == "neo-tree" then
+        vim.cmd.wincmd("p")
       else
         vim.cmd("Neotree focus")
       end
-      print("Hello")
-    end, { desc = 'Toggle Explorer Focus' })
+    end, { desc = "Toggle Explorer Focus" })
   end
 }
