@@ -1,9 +1,16 @@
--- General
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move window left' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move window down' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move window up' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move window right' })
+-- Move between windows
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to below window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to above window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
 
--- -- Buffer
--- vim.keymap.set('n', '[b', '<Cmd>bprevious<CR>', { desc = 'Prev buffer' })
--- vim.keymap.set('n', ']b', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
+-- Resize windows
+vim.keymap.set('n', '<C-Up>', '<Cmd>resize -2<CR>', { desc = 'Resize window up' })
+vim.keymap.set('n', '<C-Down>', '<Cmd>resize +2<CR>', { desc = 'Resize window down' })
+vim.keymap.set('n', '<C-Left>', '<Cmd>vertical resize -2<CR>', { desc = 'Resize window left' })
+vim.keymap.set('n', '<C-Right>', '<Cmd>vertical resize +2<CR>', { desc = 'Resize window right' })
+
+-- Standard keymaps
+vim.keymap.set('n', '<Leader>w', '<Cmd>w<CR>', { desc = 'Save' })
+vim.keymap.set('n', '<Leader>q', '<Cmd>confirm q<CR>', { desc = 'Quit Window' })
+vim.keymap.set('n', '<Leader>Q', '<Cmd>confirm qall<CR>', { desc = 'Exit Neovim' })
