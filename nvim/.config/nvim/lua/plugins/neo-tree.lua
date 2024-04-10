@@ -20,7 +20,6 @@ return {
         follow_current_file = { enabled = true },
       },
     })
-
     vim.keymap.set('n', '<Leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer' })
     vim.keymap.set('n', '<Leader>o', function()
       if vim.bo.filetype == "neo-tree" then

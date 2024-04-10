@@ -6,49 +6,40 @@ return {
     { 'neovim/nvim-lspconfig' },             -- Required
     { 'williamboman/mason.nvim' },           -- Optional
     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
     -- Autocompletion
-    { 'hrsh7th/nvim-cmp' },         -- Required
-    { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-    { 'hrsh7th/cmp-buffer' },       -- Optional
-    { 'hrsh7th/cmp-path' },         -- Optional
-    { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-    { 'hrsh7th/cmp-nvim-lua' },     -- Optional
-
+    { 'hrsh7th/nvim-cmp' },                  -- Required
+    { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+    { 'hrsh7th/cmp-buffer' },                -- Optional
+    { 'hrsh7th/cmp-path' },                  -- Optional
+    { 'saadparwaiz1/cmp_luasnip' },          -- Optional
+    { 'hrsh7th/cmp-nvim-lua' },              -- Optional
     -- Snippets
-    { 'L3MON4D3/LuaSnip' },            -- Required
-    { 'rafamadriz/friendly-snippets' } -- Optional
+    { 'L3MON4D3/LuaSnip' },                  -- Required
+    { 'rafamadriz/friendly-snippets' }       -- Optional
   },
   config = function()
     local lsp = require('lsp-zero').preset({})
-
     lsp.on_attach(function(client, bufnr)
       -- see :help lsp-zero-keybindings
       -- to learn the available actions
       lsp.default_keymaps({ buffer = bufnr })
-
       -- format on save
       lsp.buffer_autoformat()
-
       -- format with 'gc'
       local opts = { buffer = bufnr }
       vim.keymap.set({ 'n', 'x' }, 'gq', function()
         vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
       end, opts)
     end)
-
     -- (Optional) Configure lua language server for neovim
     require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
     lsp.setup()
-
     -- [[ Configure nvim-cmp ]]
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
-
     cmp.setup {
       snippet = {
         expand = function(args)
@@ -90,7 +81,6 @@ return {
         { name = 'luasnip' },
       },
     }
-
     vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
     vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
@@ -101,7 +91,6 @@ return {
       { desc = '[D]ocument [S]ymbols' })
     vim.keymap.set('n', '<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols,
       { desc = '[W]orkspace [S]ymbols' })
-
     require("mason-lspconfig").setup {
       ensure_installed = { "cssls", "lua_ls", "gopls", 'tsserver', 'clangd', 'astro', 'svelte' }
     }
