@@ -18,8 +18,10 @@ return {
       },
       filesystem = {
         follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
       },
     })
+
     vim.keymap.set('n', '<Leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Neotree' })
     vim.keymap.set('n', '<Leader>o', function()
       if vim.bo.filetype == "neo-tree" then
@@ -28,5 +30,14 @@ return {
         vim.cmd("Neotree focus")
       end
     end, { desc = "Toggle Neotree Focus" })
+
+    vim.api.nvim_create_autocmd("TermClose", {
+      pattern = "*lazygit",
+      callback = function()
+        if package.loaded["neo-tree.sources.git_status"] then
+          require("neo-tree.sources.git_status").refresh()
+        end
+      end,
+    })
   end
 }
