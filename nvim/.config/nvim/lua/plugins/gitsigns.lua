@@ -11,8 +11,9 @@ return {
       }
     }
 
-    vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { desc = '[G]o to [P]revious Hunk' })
-    vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { desc = '[G]o to [N]ext Hunk' })
-    vim.keymap.set('n', '<leader>gh', require('gitsigns').preview_hunk, { desc = '[P]review [H]unk' })
+    vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { desc = 'Previous Hunk' })
+    vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { desc = 'Next Hunk' })
+    vim.keymap.set('n', '<leader>gh', require('gitsigns').preview_hunk, { desc = 'Preview Hunk' })
+    vim.keymap.set('n', '<leader>gt', require('gitsigns').toggle_current_line_blame, { desc = 'Toggle Line Blame' })
   end
 }
