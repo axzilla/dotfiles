@@ -10,6 +10,10 @@ vim.keymap.set('n', '<C-Down>', '<Cmd>resize +2<CR>', { desc = 'Resize window do
 vim.keymap.set('n', '<C-Left>', '<Cmd>vertical resize -2<CR>', { desc = 'Resize window left' })
 vim.keymap.set('n', '<C-Right>', '<Cmd>vertical resize +2<CR>', { desc = 'Resize window right' })
 
+-- Split windows
+vim.keymap.set('n', '|', '<Cmd>vsplit<CR>', { desc = 'Vertical Split' })
+vim.keymap.set('n', '\\', '<Cmd>split<CR>', { desc = 'Horizontal Split' })
+
 -- Standard keymaps
 vim.keymap.set('n', '<Leader>w', '<Cmd>w<CR>', { desc = 'Save' })
 vim.keymap.set('n', '<Leader>q', '<Cmd>confirm q<CR>', { desc = 'Quit Window' })
