@@ -10,10 +10,6 @@ return {
       }
     })
     wk.register({
-      ["<leader>u"] = {
-        name = "UI/UX",
-        -- f = { "<cmd>IrgendeinBefehl<CR>", "Beschreibung für af" },
-      },
       ["<leader>d"] = { name = "Debugger" },
       ["<leader>l"] = { name = "LSP" },
       ["<leader>g"] = { name = "Git" },
