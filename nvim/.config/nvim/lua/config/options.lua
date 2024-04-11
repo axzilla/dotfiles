@@ -19,6 +19,7 @@ o.termguicolors = true      -- enable 24-bit RGB color in the TUI
 o.timeoutlen = 300          -- shorten key timeout length a little bit for which-key
 o.updatetime = 250          -- length of time to wait before triggering the plugin
 o.wrap = false              -- disable line wrap
+o.fillchars = { eob = " " } -- disable `~` on nonexistent lines
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
