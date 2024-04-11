@@ -16,4 +16,4 @@ vim.keymap.set('n', '<Leader>q', '<Cmd>confirm q<CR>', { desc = 'Quit Window' })
 vim.keymap.set('n', '<Leader>Q', '<Cmd>confirm qall<CR>', { desc = 'Exit Neovim' })
 
 -- Clear search highlight
-vim.keymap.set('n', '<Leader>s', '<Cmd>nohlsearch<CR>', { desc = 'Clear Search Highlight' })
+vim.keymap.set('n', '<Leader>,', '<Cmd>nohlsearch<CR>', { desc = 'Clear Search Highlight' })
