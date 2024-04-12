@@ -17,9 +17,9 @@ return {
 
 		-- Note: diagnostics are not exclusive to lsp servers
 		-- so these can be global keybindings
-		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Hover Diagnostics" })
+		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous Diagnostic" })
+		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next  Diagnostic" })
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "LSP actions",
@@ -105,11 +105,16 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
+
 			mapping = cmp.mapping.preset.insert({
 				-- Select next and previous completion item
 				["<C-k>"] = cmp.mapping.select_prev_item(),
 				["<C-j>"] = cmp.mapping.select_next_item(),
-				--
+
 				-- Close completion window
 				["<C-e>"] = cmp.mapping.abort(),
 
