@@ -15,7 +15,7 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
 
-		-- note: diagnostics are not exclusive to lsp servers
+		-- Note: diagnostics are not exclusive to lsp servers
 		-- so these can be global keybindings
 		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
@@ -26,9 +26,8 @@ return {
 			callback = function(event)
 				local opts = { buffer = event.buf }
 
-				-- these will be buffer-local keybindings
+				-- These will be buffer-local keybindings
 				-- because they only work if you have an active language server
-
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 				vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
@@ -77,7 +76,7 @@ return {
 						capabilities = lsp_capabilities,
 						settings = {
 							Lua = {
-								-- make the language server recognize "vim" global
+								-- Make the language server recognize "vim" global
 								diagnostics = {
 									globals = { "vim" },
 								},
@@ -107,6 +106,17 @@ return {
 				{ name = "buffer" },
 			},
 			mapping = cmp.mapping.preset.insert({
+				-- Select next and previous completion item
+				["<C-k>"] = cmp.mapping.select_prev_item(),
+				["<C-j>"] = cmp.mapping.select_next_item(),
+				--
+				-- Close completion window
+				["<C-e>"] = cmp.mapping.abort(),
+
+				-- Scroll up and down the documentation window
+				["<C-u>"] = cmp.mapping.scroll_docs(-4),
+				["<C-d>"] = cmp.mapping.scroll_docs(4),
+
 				-- Enter key confirms completion item
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 
