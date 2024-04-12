@@ -105,6 +105,18 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 			},
+			formatting = {
+				format = function(entry, vim_item)
+					vim_item.menu = ({
+						copilot = "[Copilot]",
+						path = "[Path]",
+						nvim_lsp = "[LSP]",
+						luasnip = "[LuaSnip]",
+						buffer = "[Buffer]",
+					})[entry.source.name]
+					return vim_item
+				end,
+			},
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
