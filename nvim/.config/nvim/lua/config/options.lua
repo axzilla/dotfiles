@@ -1,4 +1,4 @@
-o = vim.opt
+local o = vim.opt
 
 o.clipboard = "unnamedplus" -- enable clipboard
 o.cmdheight = 0 -- hide command line unless needed
