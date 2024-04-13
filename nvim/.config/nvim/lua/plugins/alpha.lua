@@ -26,6 +26,7 @@ return {
 			dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
 			dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
 		}
+
 		local handle = io.popen("fortune")
 		local fortune = handle:read("*a")
 		handle:close()
