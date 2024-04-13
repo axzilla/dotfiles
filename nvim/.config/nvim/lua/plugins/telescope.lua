@@ -20,7 +20,9 @@ return {
 				},
 			},
 		})
+
 		local builtin = require("telescope.builtin")
+
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Help" })
@@ -31,8 +33,9 @@ return {
 		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find Oldfiles" })
 		vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "Find Jumplist" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-		-- Delete default colorschemes from /neovim/share/nvim/runtime/colors
-		-- if you want to only show your installed colorschemes.
-		vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" })
+		vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" }) -- (Optional) Delete defaults in /neovim/share/nvim/runtime/colors.
+		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" })
+		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits (Repo)" })
+		vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Git Commits (Buffer)" })
 	end,
 }
