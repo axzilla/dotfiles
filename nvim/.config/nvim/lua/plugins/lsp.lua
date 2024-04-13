@@ -15,6 +15,9 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
 
+		-- Set rounded borders for diagnostic popups.
+		vim.diagnostic.config({ float = { border = "rounded" } })
+
 		-- Note: diagnostics are not exclusive to lsp servers
 		-- so these can be global keybindings.
 		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Hover Diagnostics" })
@@ -43,9 +46,16 @@ return {
 
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+		local handlers = {
+			-- Set rounded borders for hover and diagnostic popups.
+			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+		}
+
 		local default_setup = function(server)
 			require("lspconfig")[server].setup({
 				capabilities = lsp_capabilities,
+				handlers = handlers,
 			})
 		end
 
