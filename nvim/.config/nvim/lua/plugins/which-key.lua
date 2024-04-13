@@ -10,6 +10,7 @@ return {
 		local wk = require("which-key")
 		wk.register({
 			["<leader>d"] = { name = "Debugger" },
+			["<leader>x"] = { name = "Trouble" },
 			["<leader>s"] = { name = "Session" },
 			["<leader>l"] = { name = "LSP" },
 			["<leader>g"] = { name = "Git" },
