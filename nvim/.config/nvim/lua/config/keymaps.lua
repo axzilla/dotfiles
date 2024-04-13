@@ -16,7 +16,7 @@ vim.keymap.set("n", "\\", "<Cmd>split<CR>", { desc = "Horizontal Split" })
 
 -- Standard keymaps
 vim.keymap.set("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
-vim.keymap.set("n", "<Leader>q", "<Cmd>confirm q<CR>", { desc = "Quit Window" })
+vim.keymap.set("n", "<Leader>q", "<Cmd>confirm q<CR>", { desc = "Close Window" })
 vim.keymap.set("n", "<Leader>Q", "<Cmd>confirm qall<CR>", { desc = "Exit Neovim" })
 
 -- Buffers
