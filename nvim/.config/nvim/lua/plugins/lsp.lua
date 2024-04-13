@@ -31,16 +31,44 @@ return {
 
 				-- These will be buffer-local keybindings
 				-- because they only work if you have an active language server.
+				opts.desc = "Hover Diagnostic"
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+				vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+
+				opts.desc = "Go to Definition"
 				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+
+				opts.desc = "Go to Declaration"
 				vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+
+				opts.desc = "Go to Implementation"
 				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+
+				opts.desc = "Go to Type Definition"
 				vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+
+				opts.desc = "Search References"
 				vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+				vim.keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<cr>", opts)
+
+				opts.desc = "Signature Help"
 				vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-				vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-				vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-				vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+				vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+
+				opts.desc = "Rename Symbol"
+				vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+
+				opts.desc = "LSP Info"
+				vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+
+				opts.desc = "Format Buffer"
+				vim.keymap.set({ "n", "x" }, "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+
+				opts.desc = "Code Actions"
+				vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+
+				opts.desc = "Search Diagnostics"
+				vim.keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics<CR>", opts)
 			end,
 		})
 
