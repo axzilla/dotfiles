@@ -16,7 +16,7 @@ return {
 		local mason_tool_installer = require("mason-tool-installer")
 
 		-- Note: diagnostics are not exclusive to lsp servers
-		-- so these can be global keybindings
+		-- so these can be global keybindings.
 		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Hover Diagnostics" })
 		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous Diagnostic" })
 		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next  Diagnostic" })
@@ -27,7 +27,7 @@ return {
 				local opts = { buffer = event.buf }
 
 				-- These will be buffer-local keybindings
-				-- because they only work if you have an active language server
+				-- because they only work if you have an active language server.
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 				vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
@@ -76,7 +76,7 @@ return {
 						capabilities = lsp_capabilities,
 						settings = {
 							Lua = {
-								-- Make the language server recognize "vim" global
+								-- Make the language server recognize "vim" global.
 								diagnostics = {
 									globals = { "vim" },
 								},
@@ -123,21 +123,21 @@ return {
 			},
 
 			mapping = cmp.mapping.preset.insert({
-				-- Select next and previous completion item
+				-- Select next and previous completion item.
 				["<C-k>"] = cmp.mapping.select_prev_item(),
 				["<C-j>"] = cmp.mapping.select_next_item(),
 
-				-- Close completion window
+				-- Close completion window.
 				["<C-e>"] = cmp.mapping.abort(),
 
-				-- Scroll up and down the documentation window
+				-- Scroll up and down the documentation window.
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 
-				-- Enter key confirms completion item
+				-- Enter key confirms completion item.
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 
-				-- Ctrl + space triggers completion menu
+				-- Ctrl + space triggers completion menu.
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			snippet = {

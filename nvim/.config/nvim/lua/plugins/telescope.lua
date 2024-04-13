@@ -31,7 +31,8 @@ return {
 		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find Oldfiles" })
 		vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "Find Jumplist" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-		-- delete default colorschemes from /neovim/share/nvim/runtime/colors if you want to only show your installed colorschemes
+		-- Delete default colorschemes from /neovim/share/nvim/runtime/colors
+		-- if you want to only show your installed colorschemes.
 		vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" })
 	end,
 }
