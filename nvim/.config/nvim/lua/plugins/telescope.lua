@@ -24,6 +24,9 @@ return {
 		local builtin = require("telescope.builtin")
 
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+		vim.keymap.set("n", "<leader>fc", function()
+			require("telescope.builtin").current_buffer_fuzzy_find({ previewer = false })
+		end, { desc = "Find in Buffer (current)" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Help" })
 		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find Word" })
@@ -34,8 +37,16 @@ return {
 		vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "Find Jumplist" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
 		vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" }) -- (Optional) Delete defaults in /neovim/share/nvim/runtime/colors.
-		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" })
-		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits (Repo)" })
-		vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Git Commits (Buffer)" })
+		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Find Resume" })
+		vim.keymap.set("n", "<leader>f/", function()
+			builtin.live_grep({
+				grep_open_files = true,
+				prompt_title = "Live Grep in Open Files",
+			})
+		end, { desc = "Find in Open Files" })
+
+		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Find Git Branches" })
+		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Find Git Commits (Repo)" })
+		vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Find Git Commits (Buffer)" })
 	end,
 }
