@@ -44,6 +44,9 @@ return {
 				prompt_title = "Live Grep in Open Files",
 			})
 		end, { desc = "Find in Open Files" })
+		vim.keymap.set("n", "<leader>fN", function()
+			builtin.find_files({ cwd = vim.fn.stdpath("config") })
+		end, { desc = "Find Neovim Files" })
 
 		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Find Git Branches" })
 		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Find Git Commits (Repo)" })
