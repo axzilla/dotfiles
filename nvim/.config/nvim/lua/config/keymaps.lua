@@ -24,4 +24,4 @@ vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- Clear search highlight
-vim.keymap.set("n", "<Leader>,", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
