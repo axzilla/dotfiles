@@ -31,6 +31,7 @@ return {
 
 				-- These will be buffer-local keybindings
 				-- because they only work if you have an active language server.
+				-- TODO: Optional -> Take a look at kickstarts keymap solution and redesign.
 				opts.desc = "Hover Diagnostic"
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 				vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
@@ -47,7 +48,7 @@ return {
 				opts.desc = "Go to Type Definition"
 				vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
 
-				opts.desc = "Search References"
+				opts.desc = "Find References"
 				vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 				vim.keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<cr>", opts)
 
@@ -58,6 +59,12 @@ return {
 				opts.desc = "Rename Symbol"
 				vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
+				opts.desc = "Document Symbols"
+				vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+
+				opts.desc = "Workspace Symbols"
+				vim.keymap.set("n", "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
+
 				opts.desc = "LSP Info"
 				vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 
@@ -67,7 +74,7 @@ return {
 				opts.desc = "Code Actions"
 				vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
-				opts.desc = "Search Diagnostics"
+				opts.desc = "Find Diagnostics"
 				vim.keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics<CR>", opts)
 			end,
 		})
