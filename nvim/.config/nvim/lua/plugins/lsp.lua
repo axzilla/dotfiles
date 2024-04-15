@@ -23,6 +23,13 @@ return {
 		local mason_tool_installer = require("mason-tool-installer")
 		require("luasnip.loaders.from_vscode").lazy_load()
 
+		-- Set diagnostic icons in signcolumn.
+		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		end
+
 		-- Set rounded borders for diagnostic popups.
 		vim.diagnostic.config({ float = { border = "rounded" } })
 
