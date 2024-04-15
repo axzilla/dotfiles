@@ -69,9 +69,6 @@ return {
 				opts.desc = "LSP Info"
 				vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 
-				opts.desc = "Format Buffer"
-				vim.keymap.set({ "n", "x" }, "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-
 				opts.desc = "Code Actions"
 				vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
