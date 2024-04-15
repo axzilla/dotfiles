@@ -1,5 +1,4 @@
 return {
-	cond = false,
 	"akinsho/toggleterm.nvim",
 	version = "*",
 	config = function()
