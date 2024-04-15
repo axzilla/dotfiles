@@ -9,6 +9,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"L3MON4D3/LuaSnip",
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		local mason = require("mason")

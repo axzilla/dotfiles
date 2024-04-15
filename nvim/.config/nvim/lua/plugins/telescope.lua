@@ -3,7 +3,11 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		-- INFO: On M1 Macbook, go to ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
+		-- and run make clean && arch -arm64 make.
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		build = "make",
 	},
 	config = function()
 		require("telescope").setup({
@@ -20,6 +24,7 @@ return {
 				},
 			},
 		})
+		require("telescope").load_extension("fzf")
 
 		local builtin = require("telescope.builtin")
 
