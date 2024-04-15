@@ -13,6 +13,12 @@ return {
 		require("telescope").setup({
 			pickers = { colorscheme = { enable_preview = true } },
 			defaults = {
+				mappings = {
+					i = {
+						["<C-k>"] = require("telescope.actions").move_selection_previous,
+						["<C-j>"] = require("telescope.actions").move_selection_next,
+					},
+				},
 				sorting_strategy = "ascending",
 				layout_config = {
 					horizontal = {

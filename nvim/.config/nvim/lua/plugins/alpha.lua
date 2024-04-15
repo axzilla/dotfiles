@@ -27,15 +27,6 @@ return {
 			dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
 		}
 
-		local handle = io.popen("fortune")
-		local fortune = handle:read("*a")
-		handle:close()
-		dashboard.section.footer.val = fortune
-
-		dashboard.config.opts.noautocmd = true
-
-		vim.cmd([[autocmd User AlphaReady echo 'ready']])
-
 		alpha.setup(dashboard.config)
 	end,
 }
