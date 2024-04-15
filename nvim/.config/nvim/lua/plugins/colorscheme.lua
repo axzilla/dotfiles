@@ -38,9 +38,13 @@ return {
 		"craftzdog/solarized-osaka.nvim",
 		lazy = true,
 		priority = 1000,
-		opts = function()
-			return { transparent = true }
-		end,
+		opts = {
+			transparent = true, -- Aktiviert die Transparenz für das Thema
+			styles = {
+				sidebars = "transparent", -- optional: setzt den Stil der Seitenleisten auf transparent
+				floats = "transparent", -- optional: setzt den Stil der schwebenden Fenster auf transparent
+			},
+		},
 	},
 	{
 		"rebelot/kanagawa.nvim",
