@@ -4,17 +4,24 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig",
+		{ "folke/neodev.nvim", opts = {} },
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"L3MON4D3/LuaSnip",
-		{ "folke/neodev.nvim", opts = {} },
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = {
+				"saadparwaiz1/cmp_luasnip",
+				"rafamadriz/friendly-snippets",
+			},
+		},
 	},
 	config = function()
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
+		require("luasnip.loaders.from_vscode").lazy_load()
 
 		-- Set rounded borders for diagnostic popups.
 		vim.diagnostic.config({ float = { border = "rounded" } })
