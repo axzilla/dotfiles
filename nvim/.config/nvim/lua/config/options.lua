@@ -21,11 +21,10 @@ o.updatetime = 250 -- length of time to wait before triggering the plugin
 o.wrap = false -- disable line wrap
 o.fillchars = { eob = " " } -- disable `~` on nonexistent lines
 
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
-	group = highlight_group,
+	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
 	pattern = "*",
 })
