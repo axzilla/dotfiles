@@ -19,9 +19,9 @@ return {
 		-- vim.keymap.set("n", "<space>fB", ":Telescope file_browser<CR>", { desc = "Find Browser" })
 		vim.keymap.set(
 			"n",
-			"<space>fB",
+			"<space>et",
 			":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-			{ desc = "Find Browser" }
+			{ desc = "Open Telescope File Browser (Buffer)" }
 		)
 	end,
 }

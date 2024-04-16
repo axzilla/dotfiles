@@ -15,6 +15,7 @@ return {
 			["<leader>l"] = { name = "LSP" },
 			["<leader>g"] = { name = "Git" },
 			["<leader>f"] = { name = "Find/Telescope" },
+			["<leader>e"] = { name = "Explorer/Files" },
 		})
 	end,
 }
