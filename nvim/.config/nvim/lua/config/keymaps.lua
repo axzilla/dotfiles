@@ -25,3 +25,6 @@ vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- Clear search highlight
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
+
+-- Select all
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
