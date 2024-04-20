@@ -4,8 +4,8 @@ return {
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
-        -- markdown_inline because of a error with trouble v3(beta)
-			"markdown_inline",
+				-- markdown_inline because of a error with trouble v3(beta)
+				"markdown_inline",
 				"astro",
 				"c",
 				"cpp",
