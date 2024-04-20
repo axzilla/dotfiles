@@ -11,11 +11,12 @@ return {
 		wk.register({
 			["<leader>d"] = { name = "Debugger" },
 			["<leader>x"] = { name = "Trouble" },
-			["<leader>s"] = { name = "Session" },
+			["<leader>s"] = { name = "Search" },
 			["<leader>l"] = { name = "LSP" },
 			["<leader>g"] = { name = "Git" },
 			["<leader>f"] = { name = "Find/Telescope" },
 			["<leader>e"] = { name = "Explorer/Files" },
+			["<leader>t"] = { name = "Toggle" },
 		})
 	end,
 }
