@@ -6,7 +6,6 @@ return {
 			ensure_installed = {
 				-- markdown_inline because of a error with trouble v3(beta)
 				"markdown_inline",
-				"astro",
 				"c",
 				"cpp",
 				"go",
