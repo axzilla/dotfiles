@@ -2,7 +2,7 @@ local o = vim.opt
 
 o.clipboard = "unnamedplus" -- enable clipboard
 o.cmdheight = 0 -- hide command line unless needed
-o.colorcolumn = "100" -- show color column at text width 80
+-- o.colorcolumn = "100" -- show color column at text width 100
 o.cursorline = true -- highlight the text line of the cursor
 o.expandtab = true -- enable the use of space in tab
 o.guicursor = "" -- show thick cursor instead of '|'
