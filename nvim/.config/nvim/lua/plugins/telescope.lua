@@ -34,9 +34,11 @@ return {
 
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+		vim.keymap.set("n", "<leader>fb", function()
+			builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
+		end, { desc = "Find Buffers" })
 		vim.keymap.set("n", "<leader>fc", function()
-			require("telescope.builtin").current_buffer_fuzzy_find({ previewer = false })
+			builtin.current_buffer_fuzzy_find({ previewer = false })
 		end, { desc = "Find in Buffer (current)" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Help" })
