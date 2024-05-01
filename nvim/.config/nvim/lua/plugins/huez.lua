@@ -1,6 +1,5 @@
 return {
-	"axzilla/huez.nvim",
-	branch = "feature/current-colorscheme-preselect",
+	"vague2k/huez.nvim",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 		"stevearc/dressing.nvim",
