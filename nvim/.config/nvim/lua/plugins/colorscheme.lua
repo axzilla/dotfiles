@@ -7,7 +7,14 @@ return {
 	{ "sainnhe/sonokai" },
 	{ "ellisonleao/gruvbox.nvim" },
 	{ "savq/melange-nvim" },
-	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "rose-pine/neovim" },
+	{ "sainnhe/everforest" },
+	{ "maxmx03/fluoromachine.nvim" },
+	{ "EdenEast/nightfox.nvim" },
+	{ "navarasu/onedark.nvim" },
+	{ "Mofiqul/dracula.nvim" },
+	{ "sainnhe/sonokai" },
+	{ "bluz71/vim-moonfly-colors",       name = "moonfly", lazy = false, priority = 1000 },
 	{
 		"ribru17/bamboo.nvim",
 		lazy = false,
@@ -17,12 +24,16 @@ return {
 			require("bamboo").load()
 		end,
 	},
-	{ "EdenEast/nightfox.nvim" },
-	{ "navarasu/onedark.nvim" },
-	{ "Mofiqul/dracula.nvim" },
-	{ "sainnhe/sonokai" },
-	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		"scottmckendry/cyberdream.nvim",
+		opts = {
+			transparent = true,
+			italic_comments = true,
+			hide_fillchars = true,
+			borderless_telescope = true,
+			terminal_colors = true,
+		},
+	},
 	{
 		"gbprod/nord.nvim",
 		lazy = false,
@@ -33,15 +44,16 @@ return {
 	},
 	{
 		"craftzdog/solarized-osaka.nvim",
-		lazy = true,
 		priority = 1000,
 		opts = {
-			transparent = true, -- Aktiviert die Transparenz für das Thema
+			transparent = true,
 			styles = {
-				sidebars = "transparent", -- optional: setzt den Stil der Seitenleisten auf transparent
-				floats = "transparent", -- optional: setzt den Stil der schwebenden Fenster auf transparent
+				sidebars = "transparent",
+				floats = "transparent",
 			},
 		},
-	},
-	{ "rebelot/kanagawa.nvim" },
+		config = function()
+			require("solarized-osaka").setup()
+		end,
+	}
 }

@@ -1,1 +1,1 @@
-kanagawa
+kanagawa-wave
