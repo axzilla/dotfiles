@@ -13,9 +13,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("bamboo").setup({
-				style = "vulgaris",
-			})
+			require("bamboo").setup()
 			require("bamboo").load()
 		end,
 	},
@@ -30,8 +28,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("nord").setup({})
-			vim.cmd.colorscheme("nord")
+			require("nord").setup()
 		end,
 	},
 	{
@@ -46,10 +43,5 @@ return {
 			},
 		},
 	},
-	{
-		"rebelot/kanagawa.nvim",
-		-- config = function()
-		--   vim.cmd("colorscheme kanagawa-dragon")
-		-- end
-	},
+	{ "rebelot/kanagawa.nvim" },
 }

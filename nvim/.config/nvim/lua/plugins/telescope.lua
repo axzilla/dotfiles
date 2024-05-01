@@ -49,7 +49,8 @@ return {
 		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find Oldfiles" })
 		vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "Find Jumplist" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-		vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" }) -- (Optional) Delete defaults in /neovim/share/nvim/runtime/colors.
+		-- Colorscheme picker replaced by huez.lua
+		-- vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" }) -- (Optional) Delete defaults in /neovim/share/nvim/runtime/colors.
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Find Resume" })
 		vim.keymap.set("n", "<leader>f/", function()
 			builtin.live_grep({

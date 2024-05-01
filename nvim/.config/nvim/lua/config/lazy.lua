@@ -18,4 +18,6 @@ local plugins = "plugins"
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-vim.cmd("colorscheme solarized-osaka")
+
+-- Colorscheme picker by huez.lua
+-- vim.cmd("colorscheme solarized-osaka")
