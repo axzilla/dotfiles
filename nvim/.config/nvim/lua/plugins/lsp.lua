@@ -9,6 +9,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+		"onsails/lspkind.nvim",
 		{
 			"L3MON4D3/LuaSnip",
 			dependencies = {
@@ -153,6 +154,7 @@ return {
 		})
 
 		local cmp = require("cmp")
+		local lspkind = require("lspkind")
 
 		cmp.setup({
 			sources = {
@@ -162,23 +164,31 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 			},
+			---@diagnostic disable-next-line: missing-fields
 			formatting = {
-				format = function(entry, vim_item)
-					vim_item.menu = ({
-						copilot = "[Copilot]",
-						path = "[Path]",
-						nvim_lsp = "[LSP]",
-						luasnip = "[LuaSnip]",
-						buffer = "[Buffer]",
-					})[entry.source.name]
-					return vim_item
-				end,
+				format = lspkind.cmp_format({
+					maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+					symbol_map = {
+						Copilot = "",
+					},
+					-- before = function(entry, vim_item) -- Optional // This shows the cmp source
+					-- 	vim_item.menu = ({
+					-- 		copilot = "[Copilot]",
+					-- 		path = "[Path]",
+					-- 		nvim_lsp = "[LSP]",
+					-- 		luasnip = "[LuaSnip]",
+					-- 		buffer = "[Buffer]",
+					-- 	})[entry.source.name]
+					-- 	return vim_item
+					-- end,
+				}),
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
-
 			mapping = cmp.mapping.preset.insert({
 				-- Select next and previous completion item.
 				["<C-k>"] = cmp.mapping.select_prev_item(),

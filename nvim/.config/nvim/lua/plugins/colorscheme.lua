@@ -14,7 +14,7 @@ return {
 	{ "navarasu/onedark.nvim" },
 	{ "Mofiqul/dracula.nvim" },
 	{ "sainnhe/sonokai" },
-	{ "bluz71/vim-moonfly-colors",       name = "moonfly", lazy = false, priority = 1000 },
+	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
 	{
 		"ribru17/bamboo.nvim",
 		lazy = false,
@@ -55,5 +55,5 @@ return {
 		config = function()
 			require("solarized-osaka").setup()
 		end,
-	}
+	},
 }
