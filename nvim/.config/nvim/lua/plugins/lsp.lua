@@ -1,3 +1,5 @@
+local icons = require("config.icons").icons
+
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
@@ -25,7 +27,12 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		-- Set diagnostic icons in signcolumn.
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+		local signs = {
+			Error = icons.diagnostics.Error,
+			Warn = icons.diagnostics.Warn,
+			Hint = icons.diagnostics.Hint,
+			Info = icons.diagnostics.Info,
+		}
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -109,6 +116,7 @@ return {
 
 		mason.setup({
 			ui = {
+				-- TODO: Use icons from config/icons.lua
 				icons = {
 					package_installed = "✓",
 					package_pending = "➜",
@@ -171,7 +179,7 @@ return {
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
 					symbol_map = {
-						Copilot = "",
+						Copilot = icons.kinds.Copilot,
 					},
 					-- before = function(entry, vim_item) -- Optional // This shows the cmp source
 					-- 	vim_item.menu = ({

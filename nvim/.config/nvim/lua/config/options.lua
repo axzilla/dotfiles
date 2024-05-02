@@ -20,11 +20,3 @@ o.timeoutlen = 300 -- shorten key timeout length a little bit for which-key
 o.updatetime = 250 -- length of time to wait before triggering the plugin
 o.wrap = false -- disable line wrap
 o.fillchars = { eob = " " } -- disable `~` on nonexistent lines
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-	pattern = "*",
-})

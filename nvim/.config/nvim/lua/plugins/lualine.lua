@@ -1,7 +1,9 @@
+local icons = require("config.icons").icons
+
 local function recording_indicator()
 	local recording = vim.fn.reg_recording()
 	if recording ~= "" then
-		return " " .. "@" .. recording --
+		return icons.misc.LSP .. "@" .. recording --
 	else
 		return ""
 	end
@@ -61,10 +63,17 @@ return {
 				},
 				lualine_b = {
 					"branch",
-					{ "diff", symbols = { added = " ", modified = " ", removed = " " } },
+					{
+						"diff",
+						symbols = {
+							added = icons.git.Added,
+							modified = icons.git.Modified,
+							removed = icons.git.Removed,
+						},
+					},
 				},
 				lualine_c = {
-					{ get_current_folder_name, icon = "󱉭 " },
+					{ get_current_folder_name, icon = icons.misc.Folder },
 					-- { "filename", path = 1 }, -- 0 = Filename, 1 = Relative path, 2 = Absolute path
 					{ custom_filename },
 					{ recording_indicator },
@@ -73,13 +82,13 @@ return {
 					{
 						"diagnostics",
 						symbols = {
-							error = " ",
-							warn = " ",
-							hint = " ",
-							info = " ",
+							error = icons.diagnostics.Error,
+							warn = icons.diagnostics.Warn,
+							hint = icons.diagnostics.Hint,
+							info = icons.diagnostics.Info,
 						},
 					},
-					{ lsp_client_names, icon = " " },
+					{ lsp_client_names, icon = icons.misc.LSP },
 					"filetype",
 				},
 			},
