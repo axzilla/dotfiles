@@ -45,6 +45,7 @@ return {
 	{
 		"craftzdog/solarized-osaka.nvim",
 		priority = 1000,
+		lazy = true,
 		opts = {
 			transparent = true,
 			styles = {
@@ -52,8 +53,5 @@ return {
 				floats = "transparent",
 			},
 		},
-		config = function()
-			require("solarized-osaka").setup()
-		end,
 	},
 }
