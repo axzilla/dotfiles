@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("mini.files").setup({
 			windows = {
-				preview = true,
+				-- preview = true,
 			},
 		})
 		vim.keymap.set(
