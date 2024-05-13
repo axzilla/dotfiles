@@ -88,7 +88,7 @@ return {
 							info = icons.diagnostics.Info,
 						},
 					},
-					{ lsp_client_names, icon = icons.misc.LSP },
+					-- { lsp_client_names, icon = icons.misc.LSP },
 					"filetype",
 				},
 			},
