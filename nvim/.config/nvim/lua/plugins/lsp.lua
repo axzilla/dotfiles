@@ -1,5 +1,7 @@
 local icons = require("config.icons").icons
 
+vim.filetype.add({ extension = { templ = "templ" } })
+
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
@@ -134,6 +136,10 @@ return {
 				"svelte",
 				"lua_ls",
 				"emmet_ls",
+				"gopls",
+				"goimports",
+				"templ",
+				"htmx",
 			},
 			handlers = {
 				default_setup,
@@ -148,6 +154,37 @@ return {
 								},
 							},
 						},
+					})
+				end,
+				templ = function()
+					require("lspconfig").templ.setup({
+						cmd = { "templ", "lsp", "-http=localhost:7474", "-log=/Users/axeladrian/templ.log" },
+						filetypes = { "templ" },
+						root_dir = require("lspconfig.util").root_pattern("go.mod", ".git"),
+						capabilities = lsp_capabilities,
+						handlers = handlers,
+					})
+				end,
+				html = function()
+					require("lspconfig").html.setup({
+						-- on_attach = on_attach,
+						capabilities = lsp_capabilities,
+						filetypes = { "html", "templ" },
+					})
+				end,
+				htmx = function()
+					require("lspconfig").htmx.setup({
+						-- on_attach = on_attach,
+						capabilities = lsp_capabilities,
+						filetypes = { "html", "templ" },
+					})
+				end,
+				tailwindcss = function()
+					require("lspconfig").tailwindcss.setup({
+						-- on_attach = on_attach,
+						capabilities = lsp_capabilities,
+						filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+						init_options = { userLanguages = { templ = "html" } },
 					})
 				end,
 			},

@@ -9,6 +9,9 @@ return {
 				"c",
 				"cpp",
 				"go",
+				"gomod",
+				"gosum",
+				"gotmpl",
 				"lua",
 				"python",
 				"rust",
@@ -18,6 +21,7 @@ return {
 				"vim",
 				"html",
 				"svelte",
+				"templ",
 			},
 			highlight = { enable = true },
 		})
