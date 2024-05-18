@@ -12,13 +12,13 @@ return {
 				typescriptreact = { "prettierd" },
 				svelte = { "prettierd" },
 				css = { "prettierd" },
-				html = { "prettierd" },
 				json = { "prettierd" },
 				yaml = { "prettierd" },
 				markdown = { "prettierd" },
 				graphql = { "prettierd" },
 				liquid = { "prettierd" },
 				lua = { "stylua" },
+				-- html = { "prettierd" }, -- disabled because of wrong formatting on templ files
 			},
 			format_on_save = {
 				lsp_fallback = true,
