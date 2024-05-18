@@ -28,19 +28,19 @@ local function custom_filename()
 	end
 end
 
-local function lsp_client_names()
-	local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
-	if #buf_clients == 0 then
-		return "No LSP"
-	end
-
-	local client_names = {}
-	for _, client in ipairs(buf_clients) do
-		table.insert(client_names, client.name)
-	end
-
-	return table.concat(client_names, ", ")
-end
+-- local function lsp_client_names()
+-- 	local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
+-- 	if #buf_clients == 0 then
+-- 		return "No LSP"
+-- 	end
+--
+-- 	local client_names = {}
+-- 	for _, client in ipairs(buf_clients) do
+-- 		table.insert(client_names, client.name)
+-- 	end
+--
+-- 	return table.concat(client_names, ", ")
+-- end
 
 return {
 	"nvim-lualine/lualine.nvim",
