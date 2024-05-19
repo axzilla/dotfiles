@@ -1,1 +1,1 @@
-solarized-osaka
+solarized-osaka-moon
