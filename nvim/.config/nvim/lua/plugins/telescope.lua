@@ -17,6 +17,12 @@ return {
 					i = {
 						["<C-k>"] = require("telescope.actions").move_selection_previous,
 						["<C-j>"] = require("telescope.actions").move_selection_next,
+						["\\"] = require("telescope.actions").select_horizontal,
+						["|"] = require("telescope.actions").select_vertical,
+					},
+					n = {
+						["\\"] = require("telescope.actions").select_horizontal,
+						["|"] = require("telescope.actions").select_vertical,
 					},
 				},
 				sorting_strategy = "ascending",
@@ -30,16 +36,11 @@ return {
 				},
 			},
 		})
+
 		require("telescope").load_extension("fzf")
 
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "<leader><leader>", function()
-			builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
-		end, { desc = "Find Buffers" })
-		vim.keymap.set("n", "<leader>fc", function()
-			builtin.current_buffer_fuzzy_find({ previewer = false })
-		end, { desc = "Find in Buffer (current)" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Help" })
 		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find Word" })
@@ -49,21 +50,25 @@ return {
 		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find Oldfiles" })
 		vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "Find Jumplist" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-		-- Colorscheme picker replaced by huez.lua
-		-- vim.keymap.set("n", "<leader>fC", builtin.colorscheme, { desc = "Find Colorschemes" }) -- (Optional) Delete defaults in /neovim/share/nvim/runtime/colors.
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Find Resume" })
+
 		vim.keymap.set("n", "<leader>f/", function()
 			builtin.live_grep({
 				grep_open_files = true,
 				prompt_title = "Live Grep in Open Files",
 			})
 		end, { desc = "Find in Open Files" })
+
 		vim.keymap.set("n", "<leader>fN", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "Find Neovim Files" })
 
-		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Find Git Branches" })
-		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Find Git Commits (Repo)" })
-		vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Find Git Commits (Buffer)" })
+		vim.keymap.set("n", "<leader><leader>", function()
+			builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
+		end, { desc = "Find Buffers" })
+
+		vim.keymap.set("n", "<leader>fc", function()
+			builtin.current_buffer_fuzzy_find({ previewer = false })
+		end, { desc = "Find in Buffer (current)" })
 	end,
 }
