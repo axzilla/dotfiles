@@ -1,4 +1,5 @@
 return {
+	enabled = false,
 	"echasnovski/mini.files",
 	config = function()
 		require("mini.files").setup({

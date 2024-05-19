@@ -1,4 +1,3 @@
--- because :bd/:bdelete doesn't work with bufferline without bugs!
 return {
 	"echasnovski/mini.bufremove",
 	config = function()

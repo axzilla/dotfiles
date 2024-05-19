@@ -1,5 +1,5 @@
 return {
-	enabled = true,
+	enabled = false,
 	"echasnovski/mini.indentscope",
 	config = function()
 		require("mini.indentscope").setup({})
