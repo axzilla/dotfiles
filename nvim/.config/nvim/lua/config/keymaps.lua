@@ -1,4 +1,4 @@
--- Move between windows // Replace with tmux-navigator
+-- Move between windows // Replaced by tmux-navigator
 -- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 -- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
 -- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
@@ -18,6 +18,7 @@ vim.keymap.set("n", "\\", "<Cmd>split<CR>", { desc = "Horizontal Split" })
 vim.keymap.set("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
 vim.keymap.set("n", "<Leader>q", "<Cmd>confirm q<CR>", { desc = "Close Window" })
 vim.keymap.set("n", "<Leader>Q", "<Cmd>confirm qall<CR>", { desc = "Exit Neovim" })
+vim.keymap.set("n", "U", "<Cmd>redo<CR>", { desc = "Redo" }) -- Overwrite default "undo line"
 
 -- Buffers
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
