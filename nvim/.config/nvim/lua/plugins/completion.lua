@@ -14,11 +14,11 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
-		require("copilot_cmp").setup()
+		-- require("copilot_cmp").setup()
 
 		cmp.setup({
 			sources = {
-				{ name = "copilot" },
+				-- { name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
@@ -35,7 +35,7 @@ return {
 					},
 					before = function(entry, vim_item) -- Optional // This shows the cmp source
 						vim_item.menu = ({
-							copilot = "[Copilot]",
+							-- copilot = "[Copilot]",
 							path = "[Path]",
 							nvim_lsp = "[LSP]",
 							luasnip = "[LuaSnip]",
