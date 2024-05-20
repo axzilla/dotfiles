@@ -10,7 +10,9 @@ return {
 		build = "make",
 	},
 	config = function()
-		require("telescope").setup({
+		local telescope = require("telescope")
+
+		telescope.setup({
 			pickers = { colorscheme = { enable_preview = true } },
 			defaults = {
 				mappings = {

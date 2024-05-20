@@ -1,7 +1,9 @@
 return {
 	"lewis6991/gitsigns.nvim",
 	config = function()
-		require("gitsigns").setup({
+		local gs = require("gitsigns")
+
+		gs.setup({
 			signs = {
 				add = { text = "+" },
 				change = { text = "~" },
@@ -12,7 +14,6 @@ return {
 		})
 
 		local keymap = vim.keymap
-		local gs = require("gitsigns")
 
 		keymap.set("n", "]g", gs.next_hunk, { desc = "Gitsigns Next Hunk" })
 		keymap.set("n", "[g", gs.prev_hunk, { desc = "Gitsigns Previous Hunk" })

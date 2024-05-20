@@ -2,10 +2,13 @@ return {
 	"numToStr/Comment.nvim",
 	lazy = false,
 	config = function()
-		require("Comment").setup()
+		local comment = require("Comment")
+		comment.setup()
+
 		vim.keymap.set("n", "<Leader>/", function()
 			require("Comment.api").toggle.linewise.count(vim.v.count1)
 		end, { desc = "Toggle comment line" })
+
 		vim.keymap.set(
 			"v",
 			"<Leader>/",

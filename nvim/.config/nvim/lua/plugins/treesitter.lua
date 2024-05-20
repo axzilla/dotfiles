@@ -1,8 +1,11 @@
+---@diagnostic disable: missing-fields
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		local ts_configs = require("nvim-treesitter.configs")
+
+		ts_configs.setup({
 			ensure_installed = {
 				-- markdown_inline because of a error with trouble v3(beta)
 				"markdown_inline",

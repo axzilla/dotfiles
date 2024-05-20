@@ -1,5 +1,21 @@
 return {
-	{ "rebelot/kanagawa.nvim" },
+	{ "projekt0n/caret.nvim" },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none",
+							},
+						},
+					},
+				},
+			})
+		end,
+	},
 	{ "nyoom-engineering/oxocarbon.nvim" },
 	{ "projekt0n/github-nvim-theme" },
 	{ "maxmx03/fluoromachine.nvim" },
@@ -27,7 +43,7 @@ return {
 	{
 		"craftzdog/solarized-osaka.nvim",
 		priority = 1000,
-		-- lazy = true,
+		lazy = true,
 		opts = {
 			transparent = true,
 			styles = {

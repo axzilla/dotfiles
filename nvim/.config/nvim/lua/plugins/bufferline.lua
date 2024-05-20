@@ -7,7 +7,9 @@ return {
 		"tiagovla/scope.nvim", -- optional // buffers per tab scoped
 	},
 	config = function()
-		require("bufferline").setup({
+		local bufferline = require("bufferline")
+
+		bufferline.setup({
 			options = {
 				offsets = {
 					{
@@ -19,6 +21,7 @@ return {
 				},
 			},
 		})
+
 		require("scope").setup({})
 
 		vim.opt.showtabline = 0

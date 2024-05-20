@@ -4,7 +4,9 @@ return {
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({
+			local copilot = require("copilot")
+
+			copilot.setup({
 				suggestion = {
 					auto_trigger = true,
 					keymap = {

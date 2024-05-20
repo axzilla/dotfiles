@@ -9,7 +9,9 @@ return {
 		-- "ibhagwan/fzf-lua",              -- optional
 	},
 	config = function()
-		require("neogit").setup({
+		local neogit = require("neogit")
+
+		neogit.setup({
 			integrations = {
 				diffview = true,
 			},

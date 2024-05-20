@@ -1,12 +1,15 @@
 return {
 	"echasnovski/mini.bufremove",
 	config = function()
-		require("mini.bufremove").setup()
+		local bufremove = require("mini.bufremove")
+		bufremove.setup()
+
 		vim.keymap.set("n", "<leader>c", function()
-			require("mini.bufremove").delete(0, false)
+			bufremove.delete(0, false)
 		end, { desc = "Close Buffer" })
+
 		vim.keymap.set("n", "<leader>C", function()
-			require("mini.bufremove").delete(0, true)
+			bufremove.delete(0, true)
 		end, { desc = "Close Buffer (Force)" })
 	end,
 }

@@ -1,6 +1,8 @@
+---@diagnostic disable: missing-parameter
 return {
 	"windwp/nvim-ts-autotag",
 	config = function()
-		require("nvim-ts-autotag").setup()
+		local ts_autotag = require("nvim-ts-autotag")
+		ts_autotag.setup()
 	end,
 }

@@ -28,24 +28,12 @@ local function custom_filename()
 	end
 end
 
--- local function lsp_client_names()
--- 	local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
--- 	if #buf_clients == 0 then
--- 		return "No LSP"
--- 	end
---
--- 	local client_names = {}
--- 	for _, client in ipairs(buf_clients) do
--- 		table.insert(client_names, client.name)
--- 	end
---
--- 	return table.concat(client_names, ", ")
--- end
-
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
-		require("lualine").setup({
+		local lualine = require("lualine")
+
+		lualine.setup({
 			options = {
 				globalstatus = true,
 				section_separators = "",
@@ -74,7 +62,6 @@ return {
 				},
 				lualine_c = {
 					{ get_current_folder_name, icon = icons.misc.Folder },
-					-- { "filename", path = 1 }, -- 0 = Filename, 1 = Relative path, 2 = Absolute path
 					{ custom_filename },
 					{ recording_indicator },
 				},
@@ -88,7 +75,6 @@ return {
 							info = icons.diagnostics.Info,
 						},
 					},
-					-- { lsp_client_names, icon = icons.misc.LSP },
 					"filetype",
 				},
 			},
