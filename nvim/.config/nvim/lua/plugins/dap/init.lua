@@ -9,7 +9,7 @@ return {
 		{
 			"microsoft/vscode-js-debug",
 			version = "1.x",
-			-- HACK: Had to install it manually!
+			-- INFO: Had to install it manually!
 			run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 		},
 	},
@@ -17,8 +17,8 @@ return {
 		local dap = require("dap")
 		local dapui = require("dapui")
 
-		require("nvim-dap-virtual-text").setup()
-		dapui.setup({})
+		require("nvim-dap-virtual-text").setup({})
+		dapui.setup()
 
 		require("plugins.dap._go").setup()
 		require("plugins.dap._vscodejs").setup()

@@ -13,8 +13,12 @@ return {
 		local telescope = require("telescope")
 
 		telescope.setup({
-			pickers = { colorscheme = { enable_preview = true } },
 			defaults = {
+				path_display = {
+					-- "shorten",
+					-- FIX: This is not working
+					filename_first = { reverse_directories = false },
+				},
 				mappings = {
 					i = {
 						["<C-k>"] = require("telescope.actions").move_selection_previous,
