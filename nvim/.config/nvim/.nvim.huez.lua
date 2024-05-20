@@ -1,1 +1,1 @@
-kanagawa-wave
+solarized-osaka-moon

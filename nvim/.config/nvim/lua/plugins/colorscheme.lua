@@ -43,7 +43,7 @@ return {
 	{
 		"craftzdog/solarized-osaka.nvim",
 		priority = 1000,
-		lazy = true,
+		-- lazy = true,
 		opts = {
 			transparent = true,
 			styles = {
