@@ -27,6 +27,15 @@ return {
 			dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
 		}
 
+		-- Add padding at the beginning to center the content vertically
+		dashboard.config.layout = {
+			{ type = "padding", val = 8 },
+			dashboard.section.header,
+			{ type = "padding", val = 2 },
+			dashboard.section.buttons,
+			{ type = "padding", val = 2 },
+		}
+
 		alpha.setup(dashboard.config)
 	end,
 }
