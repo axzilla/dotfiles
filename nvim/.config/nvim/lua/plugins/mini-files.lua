@@ -1,24 +1,16 @@
 return {
-	enabled = false,
+	enabled = true,
 	"echasnovski/mini.files",
 	config = function()
-		require("mini.files").setup({
-			windows = {
-				-- preview = true,
-			},
-		})
-		vim.keymap.set(
-			"n",
-			"<Leader>em",
-			"<Cmd>:lua MiniFiles.open(vim.fn.expand('%:p'),false )<CR>",
-			{ desc = "Open MiniFiles (Buffer)" }
-		)
+		local mini_files = require("mini.files")
+		mini_files.setup({})
 
-		vim.keymap.set(
-			"n",
-			"<Leader>eM",
-			"<Cmd>:lua MiniFiles.open(vim.fn.getcwd(),false )<CR>",
-			{ desc = "Open MiniFiles (cwd)" }
-		)
+		vim.keymap.set("n", "<Leader>em", function()
+			mini_files.open(vim.fn.expand("%:p"), false)
+		end, { desc = "Open MiniFiles (Buffer)" })
+
+		vim.keymap.set("n", "<Leader>eM", function()
+			mini_files.open(vim.fn.getcwd(), false)
+		end, { desc = "Open MiniFiles (cwd)" })
 	end,
 }
