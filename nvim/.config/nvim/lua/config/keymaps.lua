@@ -23,6 +23,7 @@ vim.keymap.set("n", "U", "<Cmd>redo<CR>", { desc = "Redo" }) -- Overwrite defaul
 -- Buffers
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bb", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
 
 -- Clear search highlight
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
