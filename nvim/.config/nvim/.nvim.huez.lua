@@ -1,1 +1,1 @@
-onedark_dark
+solarized-osaka-moon

@@ -7,6 +7,7 @@ return {
 		"tiagovla/scope.nvim", -- optional // buffers per tab scoped
 	},
 	config = function()
+		local zen_mode = require("config.zen_mode")
 		local bufferline = require("bufferline")
 
 		bufferline.setup({
@@ -26,17 +27,6 @@ return {
 
 		require("scope").setup({})
 
-		-- vim.opt.showtabline = 0 -- Hide tabline
-
-		local function toggle_tabline()
-			---@diagnostic disable-next-line: undefined-field
-			local current_value = vim.opt.showtabline:get()
-			local new_value = current_value == 0 and 2 or 0
-			vim.opt.showtabline = new_value
-		end
-
-		vim.keymap.set("n", "<Leader>tt", function()
-			toggle_tabline()
-		end, { desc = "Toggle Tabline" })
+		vim.keymap.set("n", "<Leader>ut", zen_mode.toggle_bufferline, { desc = "Toggle Tabline" })
 	end,
 }

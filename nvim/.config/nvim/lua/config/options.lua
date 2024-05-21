@@ -1,6 +1,7 @@
 local o = vim.opt
 
 o.clipboard = "unnamedplus" -- enable clipboard
+o.mousemoveevent = true
 o.cmdheight = 0 -- hide command line unless needed
 -- o.colorcolumn = { 100, 120 } -- show color columns
 o.cursorline = true -- highlight the text line of the cursor
@@ -10,7 +11,7 @@ o.ignorecase = true -- case insensitive searching
 o.mouse = "a" -- enable mouse support
 o.number = true -- show numberline
 o.relativenumber = true -- show relative numberline
-o.scrolloff = 8 -- lines of context while scrolling
+o.scrolloff = 4 -- lines of context while scrolling
 o.shiftwidth = 2 -- number of space inserted for indentation
 o.signcolumn = "yes" -- show sign column
 o.smartcase = true -- case sensitive searching

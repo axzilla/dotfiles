@@ -20,7 +20,7 @@ return {
 			["<leader>gd"] = { name = "Diffview" },
 			["<leader>f"] = { name = "Find/Telescope" },
 			["<leader>e"] = { name = "Explorer/Files" },
-			["<leader>t"] = { name = "Toggle" },
+			["<leader>u"] = { name = "UI" },
 		})
 	end,
 }
