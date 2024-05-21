@@ -3,10 +3,12 @@ return {
 	"echasnovski/mini.files",
 	config = function()
 		local mini_files = require("mini.files")
+
 		mini_files.setup({
 			mappings = {
 				synchronize = "<Leader>w",
 			},
+			permanent_delete = false,
 		})
 
 		vim.keymap.set("n", "<Leader>m", function()
