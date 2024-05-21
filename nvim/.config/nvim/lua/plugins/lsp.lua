@@ -46,7 +46,7 @@ return {
 
 				-- These will be buffer-local keybindings
 				-- because they only work if you have an active language server.
-				-- TODO: Optional -> Take a look at kickstarts keymap solution and redesign.
+				-- INFO: Optional -> Take a look at kickstarts keymap solution and redesign.
 				opts.desc = "Hover Diagnostic"
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 				vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
