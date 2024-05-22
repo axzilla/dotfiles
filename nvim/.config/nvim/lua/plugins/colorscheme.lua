@@ -1,4 +1,5 @@
 return {
+	{ "kepano/flexoki-neovim", name = "flexoki" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"olimorris/onedarkpro.nvim",
