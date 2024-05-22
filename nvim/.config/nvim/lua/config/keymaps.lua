@@ -30,3 +30,20 @@ vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highl
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- UI - Toggle gutter, line numbers, and signcolumn
+vim.keymap.set("n", "<leader>un", function()
+	vim.wo.number, vim.wo.relativenumber = not vim.wo.number, not vim.wo.relativenumber
+	vim.notify("Line numbers " .. (vim.wo.number and "enabled" or "disabled"))
+end, { noremap = true, silent = true, desc = "Toggle Line Numbers" })
+
+vim.keymap.set("n", "<leader>us", function()
+	vim.wo.signcolumn = vim.wo.signcolumn == "no" and "yes" or "no"
+	vim.notify("Signcolumn " .. (vim.wo.signcolumn == "yes" and "enabled" or "disabled"))
+end, { noremap = true, silent = true, desc = "Toggle Signcolumn" })
+
+vim.keymap.set("n", "<leader>ug", function()
+	vim.wo.number, vim.wo.relativenumber = not vim.wo.number, not vim.wo.relativenumber
+	vim.wo.signcolumn = vim.wo.signcolumn == "no" and "yes" or "no"
+	vim.notify("Gutter " .. (vim.wo.signcolumn == "yes" and "enabled" or "disabled"))
+end, { noremap = true, silent = true, desc = "Toggle Gutter" })

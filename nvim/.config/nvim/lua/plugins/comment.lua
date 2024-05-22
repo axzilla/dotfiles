@@ -7,13 +7,13 @@ return {
 
 		vim.keymap.set("n", "<Leader>/", function()
 			require("Comment.api").toggle.linewise.count(vim.v.count1)
-		end, { desc = "Toggle comment line" })
+		end, { desc = "Toggle Comment Line" })
 
 		vim.keymap.set(
 			"v",
 			"<Leader>/",
 			"<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-			{ desc = "Toggle comment for selection" }
+			{ desc = "Toggle Comment Selection" }
 		)
 	end,
 }

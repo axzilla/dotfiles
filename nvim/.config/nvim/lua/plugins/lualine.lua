@@ -2,7 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
 		local icons = require("config.icons").icons
-		local zen_mode = require("config.zen_mode")
 
 		local function recording_indicator()
 			local recording = vim.fn.reg_recording()
@@ -141,16 +140,22 @@ return {
 
 		setup_lualine()
 
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "*",
-			callback = setup_lualine,
-		})
+		-- vim.api.nvim_create_autocmd("ColorScheme", {
+		-- 	pattern = "*",
+		-- 	callback = setup_lualine,
+		-- })
 
-		vim.keymap.set(
-			"n",
-			"<leader>ul",
-			zen_mode.toggle_lualine,
-			{ noremap = true, silent = true, desc = "Toggle Lualine" }
-		)
+		local function toggle_lualine()
+			if vim.o.laststatus == 0 then
+				vim.o.laststatus = 2
+				setup_lualine()
+				vim.notify("Lualine enabled")
+			else
+				vim.o.laststatus = 0
+				vim.notify("Lualine disabled")
+			end
+		end
+
+		vim.keymap.set("n", "<leader>ul", toggle_lualine, { noremap = true, silent = true, desc = "Toggle Lualine" })
 	end,
 }

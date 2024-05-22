@@ -7,8 +7,8 @@ return {
 		"nvim-tree/nvim-web-devicons", -- optional
 	},
 	config = function()
-		local zen_mode = require("config.zen_mode")
 		local barbecue = require("barbecue")
+		local barbecue_ui = require("barbecue.ui")
 
 		barbecue.setup({
 			symbols = {
@@ -16,6 +16,13 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>ub", zen_mode.toggle_barbecue, { desc = "Toggle Barbecue" })
+		local barbecue_enabled = true
+		local function toggle_barbecue()
+			barbecue_ui.toggle()
+			barbecue_enabled = not barbecue_enabled
+			vim.notify("Barbecue " .. (barbecue_enabled and "enabled" or "disabled"))
+		end
+
+		vim.keymap.set("n", "<leader>ub", toggle_barbecue, { desc = "Toggle Barbecue" })
 	end,
 }
