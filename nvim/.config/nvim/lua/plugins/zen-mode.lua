@@ -25,7 +25,7 @@ return {
 		vim.keymap.set("n", "<leader>uz", function()
 			zen_mode.toggle({
 				window = {
-					-- width = 0.85, -- width will be 85% of the editor width
+					width = 1, -- width will be 85% of the editor width
 				},
 			})
 		end, { desc = "Toggle Zen Mode" })

@@ -26,6 +26,8 @@ return {
 
 		require("scope").setup({})
 
+		vim.opt.showtabline = 0
+
 		local function toggle_bufferline()
 			---@diagnostic disable-next-line: undefined-field
 			local current_value = vim.opt.showtabline:get()

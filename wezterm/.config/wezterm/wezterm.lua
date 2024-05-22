@@ -16,8 +16,14 @@ config.font = wezterm.font({
 	weight = "Medium",
 	-- italic = true,
 })
+--
+config.window_padding = {
+	-- top = 0,
+	-- right = 0,
+	-- bottom = 0,
+	-- left = 0,
+}
 
-config.window_padding = { bottom = 0 }
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 14
 config.line_height = 1.2
