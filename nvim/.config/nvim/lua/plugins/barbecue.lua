@@ -11,6 +11,7 @@ return {
 		local barbecue_ui = require("barbecue.ui")
 
 		barbecue.setup({
+			attach_navic = false,
 			symbols = {
 				separator = ">",
 			},

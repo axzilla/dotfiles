@@ -1,11 +1,14 @@
 return {
 	{
-		"kepano/flexoki-neovim",
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
 	},
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
 			require("kanagawa").setup({
+				transparent = false,
 				colors = {
 					theme = {
 						all = {

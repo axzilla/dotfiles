@@ -19,10 +19,10 @@ return {
 
 		-- Set diagnostic icons in signcolumn.
 		local signs = {
-			Error = icons.diagnostics.Error,
-			Warn = icons.diagnostics.Warn,
-			Hint = icons.diagnostics.Hint,
-			Info = icons.diagnostics.Info,
+			Error = icons.misc.Flame,
+			Warn = icons.misc.Flame,
+			Hint = icons.misc.Flame,
+			Info = icons.misc.Flame,
 		}
 
 		for type, icon in pairs(signs) do

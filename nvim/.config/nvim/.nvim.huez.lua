@@ -1,1 +1,1 @@
-flexoki-dark
+solarized-osaka-moon
