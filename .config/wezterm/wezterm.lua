@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 20
 
 config.native_macos_fullscreen_mode = false
@@ -20,7 +20,7 @@ config.font = wezterm.font({
 config.window_padding = {
 	-- top = 0,
 	-- right = 0,
-	-- bottom = 0,
+	bottom = 0,
 	-- left = 0,
 }
 
