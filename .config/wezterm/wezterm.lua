@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 20
+config.color_scheme = "solarized_dark"
 
 config.native_macos_fullscreen_mode = false
 config.font = wezterm.font({
