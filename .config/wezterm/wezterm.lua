@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.60
 config.macos_window_background_blur = 20
 config.color_scheme = "solarized_dark"
 

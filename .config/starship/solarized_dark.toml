@@ -84,7 +84,7 @@ symbol = " "
 style = "bold #859900"
 
 [git_status]
-style = "bold #0b282e"
+style = "bold #1d9f91"
 
 [java]
 symbol = " "

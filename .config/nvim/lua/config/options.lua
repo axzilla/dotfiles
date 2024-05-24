@@ -1,5 +1,7 @@
 local o = vim.opt
 
+o.termguicolors = true
+o.conceallevel = 2
 o.clipboard = "unnamedplus" -- enable clipboard
 o.mousemoveevent = true
 o.cmdheight = 0 -- hide command line unless needed
