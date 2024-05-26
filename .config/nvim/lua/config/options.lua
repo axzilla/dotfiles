@@ -2,8 +2,8 @@ local o = vim.opt
 
 o.termguicolors = true
 o.conceallevel = 2
-o.clipboard = "unnamedplus" -- enable clipboard
 o.mousemoveevent = true
+o.clipboard = "unnamedplus" -- enable clipboard
 o.cmdheight = 0 -- hide command line unless needed
 -- o.colorcolumn = { 100, 120 } -- show color columns
 o.cursorline = true -- highlight the text line of the cursor

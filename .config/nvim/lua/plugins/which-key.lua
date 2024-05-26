@@ -21,6 +21,7 @@ return {
 			["<leader>f"] = { name = "Find/Telescope" },
 			["<leader>e"] = { name = "Explorer/Files" },
 			["<leader>u"] = { name = "UI" },
+			["<leader>o"] = { name = "Obsidian" },
 		})
 	end,
 }
