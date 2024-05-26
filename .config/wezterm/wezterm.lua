@@ -1,18 +1,18 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.window_background_opacity = 0.80
-config.macos_window_background_blur = 20
-config.color_scheme = "solarized_dark"
+config.color_scheme = "Gruvbox Material (Gogh)"
 
-config.native_macos_fullscreen_mode = false
 config.font = wezterm.font({
 	family = "JetBrains Mono",
 	weight = "Medium",
 })
---
+
 config.window_padding = {
+	top = 0,
+	right = 0,
 	bottom = 0,
+	left = 0,
 }
 
 config.hide_tab_bar_if_only_one_tab = true

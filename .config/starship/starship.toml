@@ -1,0 +1,51 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+right_format = "$cmd_duration"
+
+[character]
+success_symbol = "[➜](bold #a9b665)"
+error_symbol = "[➜](bold #ea6962)"
+
+[cmd_duration]
+format = "[ $duration]($style)"
+style = "bold #f2e5bc"
+
+[directory]
+read_only = " "
+style = "bold #7daea3"
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+style = "bold #a9b665"
+
+[git_status]
+style = "bold #89b482"
+
+[java]
+symbol = " "
+style = "bold #7daea3"
+
+[nix_shell]
+symbol = " "
+style = "bold #7daea3"
+impure_msg = " [impure](bold #ea6962)"
+pure_msg = " [pure](bold)"
+
+[nodejs]
+symbol = " "
+style = "bold #d8a657"
+
+[package]
+style = "bold #ea6962"
+
+[python]
+symbol = " "
+style = "bold #d8a657"
+
+[ruby]
+symbol = " "
+style = "bold #ea6962"

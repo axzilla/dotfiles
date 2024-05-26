@@ -3,7 +3,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 
-export STARSHIP_CONFIG=~/.config/starship/solarized_dark.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # Neovim Switcher
