@@ -6,7 +6,6 @@ return {
 		"stevearc/dressing.nvim",
 	},
 	config = function()
-		-- FIX: Doesn't open at current colorscheme
 		local huez = require("huez")
 
 		huez.setup({

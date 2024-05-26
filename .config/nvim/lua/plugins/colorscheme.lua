@@ -88,7 +88,6 @@ return {
 		config = function()
 			require("cyberdream").setup({
 				transparent = true,
-				-- FIX: This is not working
 				italic_comments = true,
 			})
 		end,

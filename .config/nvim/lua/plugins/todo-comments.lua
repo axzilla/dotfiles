@@ -3,7 +3,18 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local todo_comments = require("todo-comments")
-		todo_comments.setup()
+		todo_comments.setup({
+			search = {
+				args = {
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--hidden",
+				},
+			},
+		})
 
 		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todo Comments" })
 
