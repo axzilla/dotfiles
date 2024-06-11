@@ -83,6 +83,9 @@ return {
 				opts.desc = "LSP Info"
 				vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 
+				opts.desc = "LSP Restart"
+				vim.keymap.set("n", "<leader>ls", "<cmd>LspRestart<cr>", opts)
+
 				opts.desc = "Code Actions"
 				vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
