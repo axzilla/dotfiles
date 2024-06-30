@@ -8,6 +8,8 @@ config.font = wezterm.font({
 	weight = "Medium",
 })
 
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+
 config.window_padding = {
 	top = 0,
 	right = 0,
