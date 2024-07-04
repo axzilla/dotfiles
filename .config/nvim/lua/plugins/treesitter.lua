@@ -26,6 +26,7 @@ return {
 				"html",
 				"svelte",
 				"templ",
+				"css",
 			},
 			highlight = { enable = true },
 		})
