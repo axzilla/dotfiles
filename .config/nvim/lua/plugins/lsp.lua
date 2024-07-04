@@ -119,7 +119,7 @@ return {
 				},
 			},
 		})
-
+		-- FIX: tailwindcss > 0.0.16 break tailwindcss lsp in templ files =>  MasonInstall tailwindcss-language-server@0.0.16
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"tsserver",

@@ -18,7 +18,8 @@ return {
 				graphql = { "prettierd" },
 				liquid = { "prettierd" },
 				lua = { "stylua" },
-				-- html = { "prettierd" }, -- disabled because of wrong formatting on templ files
+				html = { "templ" }, -- disabled because of wrong formatting on templ files
+				templ = { "templ" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
