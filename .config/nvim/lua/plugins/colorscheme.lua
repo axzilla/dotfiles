@@ -9,15 +9,6 @@ return {
 		end,
 	},
 	{
-		"Shatur/neovim-ayu",
-	},
-	{
-		"ellisonleao/gruvbox.nvim",
-	},
-	{
-		"luisiacc/gruvbox-baby",
-	},
-	{
 		"sainnhe/sonokai",
 		lazy = false,
 		priority = 1000,
@@ -26,18 +17,6 @@ return {
 			-- directly inside the plugin declaration.
 			vim.g.sonokai_enable_italic = true
 			vim.cmd.colorscheme("sonokai")
-		end,
-	},
-	{
-		"neanias/everforest-nvim",
-		version = false,
-		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
-		config = function()
-			require("everforest").setup({
-				-- Your config here
-			})
 		end,
 	},
 	{
@@ -52,14 +31,14 @@ return {
 		end,
 	},
 	{
-		"sainnhe/edge",
+		"sainnhe/everforest",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			-- Optionally configure and load the colorscheme
 			-- directly inside the plugin declaration.
-			vim.g.edge_enable_italic = true
-			vim.cmd.colorscheme("edge")
+			vim.g.everforest_enable_italic = true
+			vim.cmd.colorscheme("everforest")
 		end,
 	},
 	{
@@ -69,28 +48,7 @@ return {
 		priority = 1000,
 	},
 	{
-		"nyoom-engineering/oxocarbon.nvim",
-	},
-	{
-		"diegoulloao/neofusion.nvim",
-		priority = 1000,
-		conf = function()
-			require("neofusion").setup({})
-		end,
-	},
-	{
 		"kepano/flexoki-neovim",
-	},
-	{
-		"scottmckendry/cyberdream.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("cyberdream").setup({
-				transparent = true,
-				italic_comments = true,
-			})
-		end,
 	},
 	{
 		"rebelot/kanagawa.nvim",
@@ -108,16 +66,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"craftzdog/solarized-osaka.nvim",
-		priority = 1000,
-		opts = {
-			transparent = true,
-			styles = {
-				sidebars = "transparent",
-				floats = "transparent",
-			},
-		},
 	},
 }
