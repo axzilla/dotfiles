@@ -37,9 +37,10 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>tt", ":Huez<CR>", { desc = "Color Themes" })
-		vim.keymap.set("n", "<leader>tf", ":HuezFavorites<CR>", { desc = "Favorite Themes" })
-		vim.keymap.set("n", "<leader>tl", ":HuezLive<CR>", { desc = "Live Themes" })
-		vim.keymap.set("n", "<leader>te", ":HuezEnsured<CR>", { desc = "Ensured Themes" })
+		local pickers = require("huez.pickers")
+		vim.keymap.set("n", "<leader>tt", pickers.themes, { desc = "Color Themes" })
+		vim.keymap.set("n", "<leader>tf", pickers.favorites, { desc = "Favorite Themes" })
+		vim.keymap.set("n", "<leader>tl", pickers.live, { desc = "Live Themes" })
+		vim.keymap.set("n", "<leader>te", pickers.ensured, { desc = "Ensured Themes" })
 	end,
 }
