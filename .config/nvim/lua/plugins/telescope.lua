@@ -1,6 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	-- INFO:  Use no branch to get the latest version (because filename_first is not working in 0.1.x)
+	-- branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- INFO: On M1 Macbook, go to ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
@@ -27,8 +28,6 @@ return {
 			},
 			defaults = {
 				path_display = {
-					-- "shorten",
-					-- FIX: This is not working
 					filename_first = { reverse_directories = false },
 				},
 				mappings = {
