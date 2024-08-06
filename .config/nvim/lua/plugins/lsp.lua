@@ -132,6 +132,7 @@ return {
 				"gopls",
 				"templ",
 				"htmx",
+				"astro",
 			},
 			handlers = {
 				default_setup,
