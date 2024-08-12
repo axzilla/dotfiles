@@ -9,20 +9,20 @@ return {
 	config = function()
 		local wk = require("which-key")
 
-		wk.register({
-			["<leader>d"] = { name = "Debugger" },
-			["<leader>b"] = { name = "Buffers" },
-			["<leader>x"] = { name = "Trouble" },
-			["<leader>s"] = { name = "Search" },
-			["<leader>l"] = { name = "LSP" },
-			["<leader>g"] = { name = "Git" },
-			["<leader>gg"] = { name = "Gitsigns" },
-			["<leader>gd"] = { name = "Diffview" },
-			["<leader>f"] = { name = "Find/Telescope" },
-			["<leader>e"] = { name = "Explorer/Files" },
-			["<leader>u"] = { name = "UI" },
-			["<leader>o"] = { name = "Obsidian" },
-			["<leader>t"] = { name = "Themes" },
+		wk.add({
+			{ "<leader>b", group = "Buffers" },
+			{ "<leader>d", group = "Debugger" },
+			{ "<leader>e", group = "Explorer/Files" },
+			{ "<leader>f", group = "Find/Telescope" },
+			{ "<leader>g", group = "Git" },
+			{ "<leader>gd", group = "Diffview" },
+			{ "<leader>gg", group = "Gitsigns" },
+			{ "<leader>l", group = "LSP" },
+			{ "<leader>o", group = "Obsidian" },
+			{ "<leader>s", group = "Search" },
+			{ "<leader>t", group = "Themes" },
+			{ "<leader>u", group = "UI" },
+			{ "<leader>x", group = "Trouble" },
 		})
 	end,
 }
