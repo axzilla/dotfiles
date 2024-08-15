@@ -6,11 +6,11 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				-- javascript = { "prettierd" },
-				-- typescript = { "prettierd" },
-				-- javascriptreact = { "prettierd" },
-				-- typescriptreact = { "prettierd" },
-				-- svelte = { "prettierd" },
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				typescriptreact = { "prettierd" },
+				svelte = { "prettierd" },
 				css = { "prettierd" },
 				json = { "prettierd" },
 				yaml = { "prettierd" },
@@ -18,6 +18,7 @@ return {
 				graphql = { "prettierd" },
 				liquid = { "prettierd" },
 				lua = { "stylua" },
+				html = { "prettierd" },
 				-- html = { "templ" }, -- disabled because of wrong formatting on templ files
 				templ = { "templ" },
 			},
