@@ -20,5 +20,5 @@ function nvims() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
-
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
