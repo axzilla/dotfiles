@@ -17,14 +17,13 @@
                         ]
                     },
                     {
-                        "description": "Left fn + HJKL to Arrow Keys",
-                        "enabled": false,
+                        "description": "Left Option + HJKL to Arrow Keys",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory": ["fn"],
+                                        "mandatory": ["left_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -35,7 +34,7 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": ["fn"],
+                                        "mandatory": ["left_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -46,7 +45,7 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": ["fn"],
+                                        "mandatory": ["left_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -57,7 +56,7 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["fn"],
+                                        "mandatory": ["left_option"],
                                         "optional": ["any"]
                                     }
                                 },
