@@ -9,6 +9,12 @@ return {
 	config = function()
 		local wk = require("which-key")
 
+		wk.setup({
+			icons = {
+				mappings = false, -- Dies deaktiviert Icons für Mappings
+			},
+		})
+
 		wk.add({
 			{ "<leader>b", group = "Buffers" },
 			{ "<leader>d", group = "Debugger" },

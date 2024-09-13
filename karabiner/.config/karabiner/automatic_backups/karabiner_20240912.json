@@ -18,7 +18,6 @@
                     },
                     {
                         "description": "Left fn + HJKL to Arrow Keys",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
