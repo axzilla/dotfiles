@@ -24,7 +24,8 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>gdD", "<cmd>DiffviewFileHistory<cr>", { desc = "Diffview File History" })
-		vim.keymap.set("n", "<leader>gdd", "<cmd>DiffviewOpen<cr>", { desc = "Diffview" })
+		vim.keymap.set("n", "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+		vim.keymap.set("n", "<leader>gdh", "<cmd>DiffviewFileHistory<cr>", { desc = "Diffview File History (repo)" })
+		vim.keymap.set("n", "<leader>gdf", "<cmd>DiffviewFileHistory %<cr>", { desc = "Diffview Current File History" })
 	end,
 }
