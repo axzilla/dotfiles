@@ -1,0 +1,70 @@
+[
+  // Escape from Insert Mode
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+
+  // Global Navigation
+  {
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+
+  // Global Commands (work without editor)
+  {
+    "context": "Workspace && !Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+
+  // Editor Commands
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "ctrl-a": "editor::SelectAll",
+      "shift-u": "vim::Redo",
+      "space /": "editor::ToggleComments",
+      "space w": "workspace::Save",
+      "space c": "pane::CloseActiveItem",
+      "space o": "pane::RevealInProjectPanel",
+      "space e": "workspace::ToggleLeftDock",
+      "space f f": "file_finder::Toggle"
+    }
+  },
+
+  // Project Panel Controls
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      // Navigation
+      "h": "project_panel::CollapseSelectedEntry",
+      "l": "project_panel::ExpandSelectedEntry",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev",
+      "o": "menu::Confirm",
+      "space o": "project_panel::ToggleFocus",
+      "space e": "workspace::ToggleLeftDock",
+
+      // File operations
+      "r": "project_panel::Rename",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "d": "project_panel::Delete",
+
+      // Creation
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+
+      // Path operations
+      "shift-y": "project_panel::CopyRelativePath",
+      "g y": "project_panel::CopyPath"
+    }
+  }
+]
