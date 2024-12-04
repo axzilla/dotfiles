@@ -1,3 +1,4 @@
+-- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
@@ -6,6 +7,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 })
 
+-- Set wrap and linebreak for markdown files
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
 	callback = function()

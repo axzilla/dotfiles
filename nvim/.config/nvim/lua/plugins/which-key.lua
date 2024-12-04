@@ -18,13 +18,9 @@ return {
 		wk.add({
 			{ "<leader>b", group = "Buffers" },
 			{ "<leader>d", group = "Debugger" },
-			{ "<leader>e", group = "Explorer/Files" },
 			{ "<leader>f", group = "Find/Telescope" },
 			{ "<leader>g", group = "Git" },
-			{ "<leader>gd", group = "Diffview" },
-			{ "<leader>gg", group = "Gitsigns" },
 			{ "<leader>l", group = "LSP" },
-			{ "<leader>o", group = "Obsidian" },
 			{ "<leader>s", group = "Search" },
 			{ "<leader>t", group = "Themes" },
 			{ "<leader>u", group = "UI" },

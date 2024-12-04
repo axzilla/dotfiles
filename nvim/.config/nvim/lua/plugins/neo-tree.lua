@@ -23,17 +23,6 @@ return {
 				follow_current_file = { enabled = true },
 				use_libuv_file_watcher = true,
 			},
-			event_handlers = {
-				{
-					event = "file_opened",
-					handler = function(file_path)
-						-- auto close
-						-- vimc.cmd("Neotree close")
-						-- OR
-						-- require("neo-tree.command").execute({ action = "close" })
-					end,
-				},
-			},
 		})
 
 		vim.keymap.set("n", "<Leader>e", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Neotree" })

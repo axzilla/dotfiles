@@ -12,106 +12,84 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		-- Import required modules
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
 		require("luasnip.loaders.from_vscode").lazy_load()
 
-		-- Set diagnostic icons in signcolumn.
-		local signs = {
-			Error = icons.misc.Flame,
-			Warn = icons.misc.Flame,
-			Hint = icons.misc.Flame,
-			Info = icons.misc.Flame,
-		}
+		-- Setup diagnostics
+		local function setup_diagnostics()
+			-- Set diagnostic icons
+			local signs = {
+				Error = icons.misc.Flame,
+				Warn = icons.misc.Flame,
+				Hint = icons.misc.Flame,
+				Info = icons.misc.Flame,
+			}
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+			end
 
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+			-- Configure diagnostic display
+			vim.diagnostic.config({ float = { border = "rounded" } })
+
+			-- Global diagnostic keymaps
+			vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Hover Diagnostics" })
+			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
+			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 		end
 
-		-- Set rounded borders for diagnostic popups.
-		vim.diagnostic.config({ float = { border = "rounded" } })
+		-- Setup LSP keymaps
+		local function setup_lsp_keymaps(event)
+			local opts = { buffer = event.buf }
+			local function map(key, func, desc)
+				opts.desc = desc
+				vim.keymap.set("n", key, func, opts)
+			end
 
-		-- Note: diagnostics are not exclusive to lsp servers
-		-- so these can be global keybindings.
-		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Hover Diagnostics" })
-		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous Diagnostic" })
-		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next  Diagnostic" })
+			-- Navigation
+			map("gd", vim.lsp.buf.definition, "Go to Definition")
+			map("gr", vim.lsp.buf.references, "Find References")
+			map("gi", vim.lsp.buf.implementation, "Go to Implementation")
+			map("K", vim.lsp.buf.hover, "Hover Documentation")
+			map("gs", vim.lsp.buf.signature_help, "Signature Help")
 
-		vim.api.nvim_create_autocmd("LspAttach", {
-			desc = "LSP actions",
-			callback = function(event)
-				local opts = { buffer = event.buf }
+			-- Actions
+			map("<leader>la", vim.lsp.buf.code_action, "Code Actions")
+			map("<leader>lr", vim.lsp.buf.rename, "Rename Symbol")
 
-				-- These will be buffer-local keybindings
-				-- because they only work if you have an active language server.
-				-- INFO: Optional -> Take a look at kickstarts keymap solution and redesign.
-				opts.desc = "Hover Diagnostic"
-				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-				vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+			-- LSP management
+			map("<leader>li", "<cmd>LspInfo<cr>", "LSP Info")
+			map("<leader>ls", "<cmd>LspRestart<cr>", "LSP Restart")
+		end
 
-				opts.desc = "Go to Definition"
-				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-
-				opts.desc = "Go to Declaration"
-				vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-
-				opts.desc = "Go to Implementation"
-				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-
-				opts.desc = "Go to Type Definition"
-				vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-
-				opts.desc = "Find References"
-				vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-				vim.keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<cr>", opts)
-
-				opts.desc = "Signature Help"
-				vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-				vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-
-				opts.desc = "Rename Symbol"
-				vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-
-				opts.desc = "Document Symbols"
-				vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-
-				opts.desc = "Workspace Symbols"
-				vim.keymap.set("n", "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
-
-				opts.desc = "LSP Info"
-				vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-
-				opts.desc = "LSP Restart"
-				vim.keymap.set("n", "<leader>ls", "<cmd>LspRestart<cr>", opts)
-
-				opts.desc = "Code Actions"
-				vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-
-				opts.desc = "Find Diagnostics"
-				vim.keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics<CR>", opts)
-			end,
-		})
-
+		-- LSP Setup
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 		local handlers = {
-			-- Set rounded borders for hover and diagnostic popups.
 			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
 			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 		}
 
-		local default_setup = function(server)
+		local function default_setup(server)
 			require("lspconfig")[server].setup({
 				capabilities = lsp_capabilities,
 				handlers = handlers,
 			})
 		end
 
+		-- Initialize everything
+		setup_diagnostics()
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			desc = "LSP actions",
+			callback = setup_lsp_keymaps,
+		})
+
+		-- Mason setup
 		mason.setup({
 			ui = {
-				-- TODO: Use icons from config/icons.lua
 				icons = {
 					package_installed = "✓",
 					package_pending = "➜",
@@ -119,7 +97,8 @@ return {
 				},
 			},
 		})
-		-- FIX: tailwindcss > 0.0.16 break tailwindcss lsp in templ files =>  MasonInstall tailwindcss-language-server@0.0.16
+
+		-- Configure language servers
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"tsserver",
@@ -141,7 +120,6 @@ return {
 						capabilities = lsp_capabilities,
 						settings = {
 							Lua = {
-								-- Make the language server recognize "vim" global.
 								diagnostics = {
 									globals = { "vim" },
 								},
@@ -152,6 +130,7 @@ return {
 			},
 		})
 
+		-- Configure formatters/linters
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"prettierd",

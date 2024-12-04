@@ -5,6 +5,7 @@ return {
 		ts_context.setup()
 
 		local context_enabled = true
+
 		local function toggle_treesitter_context()
 			ts_context.toggle()
 			context_enabled = not context_enabled

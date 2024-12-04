@@ -29,7 +29,6 @@ return {
 		vim.opt.showtabline = 0
 
 		local function toggle_bufferline()
-			---@diagnostic disable-next-line: undefined-field
 			local current_value = vim.opt.showtabline:get()
 			local new_value = current_value == 0 and 2 or 0
 			vim.opt.showtabline = new_value
