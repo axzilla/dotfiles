@@ -68,6 +68,9 @@ return {
 			builtin.find_files({ hidden = true })
 		end, "Find Hidden Files")
 		map("fo", builtin.oldfiles, "Find Oldfiles")
+		map("<leader>", function()
+			builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
+		end, "Find Buffers")
 
 		-- Search pickers
 		map("fw", builtin.grep_string, "Find Word")
