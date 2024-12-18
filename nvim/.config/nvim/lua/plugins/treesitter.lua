@@ -21,6 +21,7 @@ return {
 				"rust",
 				"tsx",
 				"typescript",
+				"javascript",
 				"vimdoc",
 				"vim",
 				"html",
@@ -28,7 +29,12 @@ return {
 				"templ",
 				"css",
 			},
-			highlight = { enable = true },
+			highlight = {
+				enable = true,
+			},
+			indent = {
+				enable = true,
+			},
 		})
 	end,
 }

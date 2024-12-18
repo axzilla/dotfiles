@@ -45,18 +45,18 @@
       // Navigation
       "h": "project_panel::CollapseSelectedEntry",
       "l": "project_panel::ExpandSelectedEntry",
+      // "o": "project_panel::Open",
       "j": "menu::SelectNext",
       "k": "menu::SelectPrev",
-      "o": "menu::Confirm",
       "space o": "project_panel::ToggleFocus",
       "space e": "workspace::ToggleLeftDock",
 
       // File operations
-      "r": "project_panel::Rename",
-      "x": "project_panel::Cut",
-      "c": "project_panel::Copy",
-      "p": "project_panel::Paste",
-      "d": "project_panel::Delete",
+      // "r": "project_panel::Rename",
+      // "x": "project_panel::Cut",
+      // "c": "project_panel::Copy",
+      // "p": "project_panel::Paste",
+      // "d": "project_panel::Delete",
 
       // Creation
       "a": "project_panel::NewFile",

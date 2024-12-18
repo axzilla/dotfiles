@@ -15,3 +15,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.linebreak = true
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "go", "templ" },
+	callback = function()
+		vim.bo.expandtab = false -- Go idiomatisch: TABS
+		vim.bo.tabstop = 4 -- Standard Go tab width
+		vim.bo.shiftwidth = 4
+	end,
+})

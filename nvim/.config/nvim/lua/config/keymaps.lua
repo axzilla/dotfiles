@@ -47,3 +47,15 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 vim.keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 vim.keymap.set("v", "<A-j>", ":'<,'>move '>+1<CR>gv=gv", { desc = "Move Down", silent = true })
 vim.keymap.set("v", "<A-k>", ":'<,'>move '<-2<CR>gv=gv", { desc = "Move Up", silent = true })
+
+local function toggle_listchars()
+	if vim.opt.list:get() then
+		vim.opt.list = false
+		vim.notify("Listchars disabled")
+	else
+		vim.opt.list = true
+		vim.wo.listchars = "space:·,tab:→ "
+		vim.notify("Listchars enabled")
+	end
+end
+vim.keymap.set("n", "<leader>uw", toggle_listchars, { desc = "Toggle Whitespace Characters" })
