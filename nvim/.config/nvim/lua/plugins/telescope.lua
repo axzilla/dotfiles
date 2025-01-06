@@ -5,29 +5,15 @@ return {
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
-			-- NOTE: On M1 Macbook: cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim && make clean && arch -arm64 make
 		},
 		"nvim-tree/nvim-web-devicons",
-		build = "make",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 		local actions = require("telescope.actions")
 
-		-- Base Configuration
 		local config = {
-			pickers = {
-				live_grep = {
-					file_ignore_patterns = { "node_modules", ".git", ".venv" },
-					additional_args = function(_)
-						return { "--hidden" }
-					end,
-				},
-				find_files = {
-					file_ignore_patterns = { "node_modules", ".git", ".venv" },
-				},
-			},
 			defaults = {
 				path_display = { filename_first = { reverse_directories = false } },
 				sorting_strategy = "ascending",
@@ -50,6 +36,72 @@ return {
 						["\\"] = actions.select_horizontal,
 						["|"] = actions.select_vertical,
 					},
+				},
+			},
+			pickers = {
+				-- With preview (bottom)
+				live_grep = {
+					file_ignore_patterns = { "node_modules", ".git", ".venv" },
+					additional_args = function(_)
+						return { "--hidden" }
+					end,
+					layout_strategy = "vertical",
+					layout_config = {
+						width = 0.7,
+						height = 0.9,
+						preview_height = 0.4,
+						prompt_position = "top",
+						mirror = true,
+					},
+				},
+				grep_string = {
+					file_ignore_patterns = { "node_modules", ".git", ".venv" },
+					additional_args = function(_)
+						return { "--hidden" }
+					end,
+					layout_strategy = "vertical",
+					layout_config = {
+						width = 0.7,
+						height = 0.9,
+						preview_height = 0.4,
+						prompt_position = "top",
+						mirror = true,
+					},
+				},
+
+				-- Ohne Preview (schmal)
+				find_files = {
+					previewer = false,
+					file_ignore_patterns = { "node_modules", ".git", ".venv" },
+					layout_config = { width = 0.5 },
+				},
+				oldfiles = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				buffers = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				help_tags = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				keymaps = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				diagnostics = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				lsp_document_symbols = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				lsp_workspace_symbols = {
+					previewer = false,
+					layout_config = { width = 0.5 },
 				},
 			},
 		}

@@ -2,45 +2,51 @@ return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
 		local icons = require("config.icons").icons
-		local lualine = require("lualine")
 
-		lualine.setup({
+		require("lualine").setup({
 			options = {
+				theme = "auto",
 				globalstatus = true,
-				section_separators = "",
 				component_separators = "",
+				section_separators = "",
 			},
 			sections = {
 				lualine_a = {
-					{ "mode" },
-				},
-				lualine_b = {},
-				lualine_c = {
-					{ "branch" },
 					{
-						"diff",
-						symbols = {
-							added = icons.misc.Dot,
-							modified = icons.misc.Dot,
-							removed = icons.misc.Dot,
-						},
-					},
-					{
-						-- Workspace root folder name
-						function()
-							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+						"mode",
+						fmt = function(str)
+							return str:sub(1, 1)
 						end,
+					},
+				},
+				lualine_b = { "branch" },
+				lualine_c = {
+					{
+						"diagnostics",
+						symbols = {
+							warn = icons.misc.Flame,
+							error = icons.misc.Flame,
+							hint = icons.misc.Flame,
+							info = icons.misc.Flame,
+						},
+						colored = true,
 					},
 				},
 				lualine_x = {
 					{
-						"diagnostics",
-						symbols = {
-							error = icons.misc.Flame,
-							warn = icons.misc.Flame,
-							hint = icons.misc.Flame,
-							info = icons.misc.Flame,
-						},
+						function()
+							local recording_reg = vim.fn.reg_recording()
+							if recording_reg ~= "" then
+								return icons.misc.Record
+							end
+							return ""
+						end,
+						color = { fg = "red" },
+					},
+					{
+						function()
+							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+						end,
 					},
 				},
 				lualine_y = { "progress" },
@@ -48,6 +54,7 @@ return {
 			},
 		})
 
+		-- Toggle Lualine
 		local function toggle_lualine()
 			if vim.o.laststatus == 1 then
 				vim.o.laststatus = 3
@@ -57,7 +64,6 @@ return {
 				vim.notify("Lualine disabled")
 			end
 		end
-
 		vim.keymap.set("n", "<leader>ul", toggle_lualine, { noremap = true, silent = true, desc = "Toggle Lualine" })
 	end,
 }

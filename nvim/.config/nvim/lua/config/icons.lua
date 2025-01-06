@@ -11,6 +11,7 @@ M.icons = {
 		Dot = " ",
 		Flame = " ",
 		Git = " ",
+		Record = "",
 	},
 	diagnostics = {
 		-- Error = " ",
