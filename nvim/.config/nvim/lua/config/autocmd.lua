@@ -7,9 +7,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 })
 
--- Set wrap and linebreak for markdown files
+-- Set wrap and linebreak
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
+	pattern = { "markdown", "txt" },
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.linebreak = true

@@ -37,11 +37,11 @@ return {
 						function()
 							local recording_reg = vim.fn.reg_recording()
 							if recording_reg ~= "" then
-								return icons.misc.Record
+								return icons.misc.Macro
 							end
 							return ""
 						end,
-						color = { fg = "red" },
+						color = { fg = "Pink" },
 					},
 					{
 						function()

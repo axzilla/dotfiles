@@ -1,8 +1,9 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "Kanagawa Dragon (Gogh)"
-config.colors = { background = "#181616" } -- Kanagawa Dragon background color
+-- config.color_scheme = "Kanagawa Dragon (Gogh)"
+-- config.colors = { background = "#181616" } -- Kanagawa Dragon background color
+config.color_scheme = "Oxocarbon Dark (Gogh)"
 
 config.font = wezterm.font({
 	family = "JetBrains Mono",
