@@ -112,6 +112,9 @@ return {
 				"templ",
 				"htmx",
 				"astro",
+				"bashls",
+				"docker_compose_language_service",
+				"dockerls",
 			},
 			handlers = {
 				default_setup,

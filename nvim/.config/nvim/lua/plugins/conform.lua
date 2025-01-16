@@ -20,6 +20,7 @@ return {
 				lua = { "stylua" },
 				html = { "prettierd" },
 				templ = { "templ" },
+				go = { "goimports", "gopls" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
