@@ -59,6 +59,7 @@ vim.keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<c
 vim.keymap.set("v", "<A-j>", ":'<,'>move '>+1<CR>gv=gv", { desc = "Move Down", silent = true })
 vim.keymap.set("v", "<A-k>", ":'<,'>move '<-2<CR>gv=gv", { desc = "Move Up", silent = true })
 
+-- Toggle Whitespace Chars
 local function toggle_listchars()
 	if vim.opt.list:get() then
 		vim.opt.list = false
@@ -69,4 +70,22 @@ local function toggle_listchars()
 		vim.notify("Listchars enabled")
 	end
 end
-vim.keymap.set("n", "<leader>uw", toggle_listchars, { desc = "Toggle Whitespace Characters" })
+vim.keymap.set("n", "<leader>uw", toggle_listchars, { desc = "Toggle Whitespace Chars" })
+
+-- Toggle Colorcolumns
+local function toggle_colorcolumn()
+	if vim.wo.colorcolumn == "" then
+		-- First Option: only 100
+		vim.wo.colorcolumn = "100"
+		vim.notify("ColorColumn: 100")
+	elseif vim.wo.colorcolumn == "100" then
+		-- Second Option: 80 and 100
+		vim.wo.colorcolumn = "80,100"
+		vim.notify("ColorColumn: 80,100")
+	else
+		-- Off
+		vim.wo.colorcolumn = ""
+		vim.notify("ColorColumn disabled")
+	end
+end
+vim.keymap.set("n", "<leader>um", toggle_colorcolumn, { desc = "Toggle ColorColumn" })

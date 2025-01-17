@@ -17,6 +17,9 @@ return {
 		local dap = require("dap")
 		local dapui = require("dapui")
 
+		vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint" })
+		vim.fn.sign_define("DapStopped", { text = "▶", texthl = "DapStopped" })
+
 		require("nvim-dap-virtual-text").setup({})
 		dapui.setup()
 
