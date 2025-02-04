@@ -10,10 +10,10 @@ vim.keymap.set("n", "<", "<<", n_opts)
 vim.keymap.set("n", ">", ">>", n_opts)
 
 -- Move between windows // INFO: tmux-navigator use this as well
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Resize windows
 vim.keymap.set("n", "<C-Up>", "<Cmd>resize -2<CR>", { desc = "Resize window up" })

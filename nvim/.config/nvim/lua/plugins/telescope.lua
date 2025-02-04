@@ -69,7 +69,7 @@ return {
 					},
 				},
 
-				-- Ohne Preview (schmal)
+				-- Without Preview
 				find_files = {
 					previewer = false,
 					file_ignore_patterns = { "node_modules", ".git", ".venv" },
@@ -100,6 +100,10 @@ return {
 					layout_config = { width = 0.5 },
 				},
 				lsp_workspace_symbols = {
+					previewer = false,
+					layout_config = { width = 0.5 },
+				},
+				current_buffer_fuzzy_find = {
 					previewer = false,
 					layout_config = { width = 0.5 },
 				},
@@ -140,5 +144,8 @@ return {
 		map("fh", builtin.help_tags, "Find Help")
 		map("fk", builtin.keymaps, "Find Keymaps")
 		map("fr", builtin.resume, "Find Last Results")
+
+		-- Current Buffer Fuzzy Search
+		map("fb", builtin.current_buffer_fuzzy_find, "Find in Current Buffer")
 	end,
 }
