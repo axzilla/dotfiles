@@ -116,6 +116,7 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 			},
+			automatic_installation = true,
 			handlers = {
 				default_setup,
 				lua_ls = function()
@@ -132,7 +133,6 @@ return {
 				end,
 			},
 		})
-
 		-- Configure formatters/linters
 		mason_tool_installer.setup({
 			ensure_installed = {
