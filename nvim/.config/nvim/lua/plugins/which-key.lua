@@ -11,8 +11,9 @@ return {
 
 		wk.setup({
 			icons = {
-				mappings = false, -- Dies deaktiviert Icons für Mappings
+				mappings = false, -- This enables icons for mappings
 			},
+			preset = "modern",
 		})
 
 		wk.add({
