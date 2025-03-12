@@ -17,6 +17,7 @@ return {
 		})
 
 		wk.add({
+			{ "<leader>a", group = "AI" },
 			{ "<leader>b", group = "Buffers" },
 			{ "<leader>d", group = "Debugger" },
 			{ "<leader>f", group = "Find/Telescope" },

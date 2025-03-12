@@ -1,11 +1,9 @@
 theme = Kanagawa Dragon
+adjust-cell-height = 5 
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
 mouse-hide-while-typing = true
-# Disable programming ligatures
-font-feature=-calt
-# Disable standard ligatures
-font-feature=-liga
-# Disable fancy ligatures
-font-feature=-dlig
+font-feature=-calt # Disable programming ligatures
+font-feature=-liga # Disable standard ligatures
+font-feature=-dlig # Disable fancy ligatures

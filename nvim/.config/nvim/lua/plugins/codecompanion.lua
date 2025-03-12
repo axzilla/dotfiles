@@ -7,21 +7,25 @@ return {
 		"j-hui/fidget.nvim",
 	},
 	config = function()
+		-- Configure the codecompanion plugin
 		require("codecompanion").setup({
+			-- Define interaction strategies with different adapters
 			strategies = {
 				chat = {
-					adapter = "copilot",
+					adapter = "copilot", -- Use Copilot for chat interactions
 				},
 				inline = {
-					adapter = "copilot",
+					adapter = "copilot", -- Use Copilot for inline code suggestions
 				},
 			},
+			-- Configure the adapters
 			adapters = {
 				copilot = function()
+					-- Extend the default Copilot adapter with custom configuration
 					return require("codecompanion.adapters").extend("copilot", {
 						schema = {
 							model = {
-								default = "claude-3.7-sonnet",
+								default = "claude-3.7-sonnet", -- Set Claude 3.7 Sonnet as the default model
 							},
 						},
 					})
@@ -50,7 +54,6 @@ return {
 		map("n", "<leader>aa", "<cmd>CodeCompanionActions<CR>", "Select AI Actions")
 	end,
 	init = function()
-		vim.cmd([[cab cc CodeCompanion]])
 		require("plugins.codecompanion.spinner"):init()
 	end,
 }
