@@ -28,98 +28,24 @@ return {
 			},
 		})
 
-		-- Keymaps setup with <leader>a prefix and English comments
-		local keymap = vim.keymap.set
-		local opts = { noremap = true, silent = true }
+		-- Set up keymaps with descriptive comments and the <leader>a prefix
+		-- Define a wrapper function for setting keymaps
+		-- @param mode: string|table - Mode short-name ("n", "i", "v", "x", etc.) or table of mode names
+		-- @param lhs: string - Left-hand side of the mapping. The key(s) to be pressed
+		-- @param rhs: string|function - Right-hand side of the mapping. The command or function to execute
+		-- @param desc: string - Optional description for the mapping (for which-key and help)
+		local function map(mode, lhs, rhs, desc)
+			vim.keymap.set(mode, lhs, rhs, {
+				noremap = true, -- Use non-recursive mapping
+				silent = true, -- Don't echo commands to command line
+				desc = desc, -- Add description for documentation/display
+			})
+		end
 
-		-- Open AI Chat
-		-- Opens the CodeCompanion chat window using Copilot
-		keymap(
-			"n",
-			"<leader>ac",
-			"<cmd>CodeCompanionChat<CR>",
-			vim.tbl_extend("force", opts, { desc = "Open AI Chat" })
-		)
-
-		-- Close AI Chat
-		-- Closes the CodeCompanion chat window
-		keymap(
-			"n",
-			"<leader>aq",
-			"<cmd>CodeCompanionChatClose<CR>",
-			vim.tbl_extend("force", opts, { desc = "Close AI Chat" })
-		)
-
-		-- Toggle AI Chat
-		-- Toggles the visibility of the CodeCompanion chat window
-		keymap(
-			"n",
-			"<leader>at",
-			"<cmd>CodeCompanionToggle<CR>",
-			vim.tbl_extend("force", opts, { desc = "Toggle AI Chat" })
-		)
-
-		-- Start AI Inline Edit
-		-- Starts inline editing with CodeCompanion using Copilot in normal mode
-		keymap(
-			"n",
-			"<leader>ai",
-			"<cmd>CodeCompanionInline<CR>",
-			vim.tbl_extend("force", opts, { desc = "Start AI Inline Edit" })
-		)
-		-- Starts inline editing with CodeCompanion using Copilot on visual selection
-		keymap(
-			"v",
-			"<leader>ai",
-			":'<,'>CodeCompanionInline<CR>",
-			vim.tbl_extend("force", opts, { desc = "Start AI Inline Edit (Visual)" })
-		)
-
-		-- Select AI Actions
-		-- Opens the list of available CodeCompanion actions
-		keymap(
-			"n",
-			"<leader>aa",
-			"<cmd>CodeCompanionActions<CR>",
-			vim.tbl_extend("force", opts, { desc = "Select AI Actions" })
-		)
-
-		-- AI Chat with Buffer Context
-		-- Starts a chat with the context of the current buffer using Copilot
-		keymap(
-			"n",
-			"<leader>ab",
-			"<cmd>CodeCompanionChat Buffer<CR>",
-			vim.tbl_extend("force", opts, { desc = "AI Chat with Buffer Context" })
-		)
-		-- Starts a chat with the context of the selected buffer text using Copilot
-		keymap(
-			"v",
-			"<leader>ab",
-			":'<,'>CodeCompanionChat Buffer<CR>",
-			vim.tbl_extend("force", opts, { desc = "AI Chat with Selected Buffer Context" })
-		)
-
-		-- Open AI Prompt Library
-		-- Opens the CodeCompanion prompt library for quick tasks
-		keymap(
-			"n",
-			"<leader>ap",
-			"<cmd>CodeCompanionPrompt<CR>",
-			vim.tbl_extend("force", opts, { desc = "Open AI Prompt Library" })
-		)
-
-		-- Clear AI Chat Buffer
-		-- Clears the current chat buffer in CodeCompanion
-		keymap(
-			"n",
-			"<leader>ad",
-			"<cmd>CodeCompanionChatClear<CR>",
-			vim.tbl_extend("force", opts, { desc = "Clear AI Chat Buffer" })
-		)
-
-		-- Insert Slash Command in Chat (optional)
-		-- Inserts a slash command in chat mode for quick actions
-		keymap("i", "<C-s>", "/", vim.tbl_extend("force", opts, { desc = "Insert Slash Command in Chat" })) -- In Chat mode
+		-- Chat operations
+		map("n", "<leader>ac", "<cmd>CodeCompanionChat<CR>", "Open AI Chat")
+		map("v", "<leader>ac", "<cmd>CodeCompanionChat<CR>", "Open AI Chat")
+		map("v", "<leader>ai", ":'<,'>CodeCompanion<CR>", "Start AI Inline Edit (Visual)")
+		map("n", "<leader>aa", "<cmd>CodeCompanionActions<CR>", "Select AI Actions")
 	end,
 }
