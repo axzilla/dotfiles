@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"j-hui/fidget.nvim",
 	},
 	config = function()
 		require("codecompanion").setup({
@@ -47,5 +48,9 @@ return {
 		map("v", "<leader>ac", "<cmd>CodeCompanionChat<CR>", "Open AI Chat")
 		map("v", "<leader>ai", ":'<,'>CodeCompanion<CR>", "Start AI Inline Edit (Visual)")
 		map("n", "<leader>aa", "<cmd>CodeCompanionActions<CR>", "Select AI Actions")
+	end,
+	init = function()
+		vim.cmd([[cab cc CodeCompanion]])
+		require("plugins.codecompanion.spinner"):init()
 	end,
 }
