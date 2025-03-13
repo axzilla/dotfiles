@@ -8,7 +8,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
+		"saghen/blink.cmp", -- Ersetzt cmp-nvim-lsp für Capabilities
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
@@ -66,7 +66,7 @@ return {
 		end
 
 		-- LSP Setup
-		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local lsp_capabilities = require("blink.cmp").get_lsp_capabilities() -- Angepasst für blink.cmp
 		local handlers = {
 			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
 			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
@@ -122,6 +122,7 @@ return {
 				lua_ls = function()
 					require("lspconfig").lua_ls.setup({
 						capabilities = lsp_capabilities,
+						handlers = handlers,
 						settings = {
 							Lua = {
 								diagnostics = {
@@ -131,8 +132,23 @@ return {
 						},
 					})
 				end,
+				gopls = function()
+					require("lspconfig").gopls.setup({
+						capabilities = lsp_capabilities,
+						handlers = handlers,
+						settings = {
+							gopls = {
+								analyses = {
+									unusedparams = true,
+								},
+								staticcheck = true,
+							},
+						},
+					})
+				end,
 			},
 		})
+
 		-- Configure formatters/linters
 		mason_tool_installer.setup({
 			ensure_installed = {
