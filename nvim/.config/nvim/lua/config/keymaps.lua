@@ -89,3 +89,17 @@ local function toggle_colorcolumn()
 	end
 end
 vim.keymap.set("n", "<leader>um", toggle_colorcolumn, { desc = "Toggle ColorColumn" })
+
+-- Toggle Copilot
+local copilot_on = true
+vim.api.nvim_create_user_command("CopilotToggle", function()
+	if copilot_on then
+		vim.cmd("Copilot disable")
+		vim.notify("Copilot OFF")
+	else
+		vim.cmd("Copilot enable")
+		vim.notify("Copilot ON")
+	end
+	copilot_on = not copilot_on
+end, { nargs = 0 })
+vim.keymap.set("n", "<leader>ua", ":CopilotToggle<CR>", { desc = "Toggle Copilot", silent = true })
