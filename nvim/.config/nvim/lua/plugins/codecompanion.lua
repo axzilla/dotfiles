@@ -1,4 +1,5 @@
 return {
+
 	"olimorris/codecompanion.nvim",
 	enabled = true,
 	dependencies = {
@@ -55,8 +56,8 @@ return {
 		end
 
 		-- Chat operations
-		map("n", "<leader>ac", "<cmd>CodeCompanionChat<CR>", "Open AI Chat")
-		map("v", "<leader>ac", "<cmd>CodeCompanionChat<CR>", "Open AI Chat")
+		map({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionChat<CR>", "Open New AI Chat")
+		map({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<CR>", "Toggle AI Chat")
 		map("v", "<leader>ai", ":'<,'>CodeCompanion<CR>", "Start AI Inline Edit (Visual)")
 		map("n", "<leader>aa", "<cmd>CodeCompanionActions<CR>", "Select AI Actions")
 	end,
