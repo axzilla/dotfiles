@@ -5,6 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"j-hui/fidget.nvim",
+		{ "echasnovski/mini.diff", opts = {} }, -- opts is important here otherwise mini.diff would not be recocnized
 	},
 	config = function()
 		-- Configure the codecompanion plugin
@@ -30,6 +31,12 @@ return {
 						},
 					})
 				end,
+			},
+			display = {
+				diff = {
+					provider = "mini_diff", -- default|mini_diff
+					layout = "horizontal", -- vertical|horizontal split for default provider
+				},
 			},
 		})
 
