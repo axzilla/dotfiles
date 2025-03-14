@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	enabled = false,
 	-- INFO: Can remove the LSP capabilities and handlers in the lsp.lua from neovim 0.11.x?
 	dependencies = {
 		"rafamadriz/friendly-snippets",
@@ -32,6 +33,9 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			per_filetype = {
+				templ = { "lsp" }, -- Erzwingt LSP als Quelle für templ-Dateien
+			},
 		},
 		-- Rust fuzzy matcher for better performance
 		fuzzy = { implementation = "prefer_rust_with_warning" },

@@ -4,6 +4,7 @@ vim.filetype.add({ extension = { templ = "templ" } })
 
 return {
 	"williamboman/mason.nvim",
+	enabled = false,
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
