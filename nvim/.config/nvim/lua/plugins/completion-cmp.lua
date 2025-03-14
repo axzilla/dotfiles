@@ -59,8 +59,9 @@ return {
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 
-				-- Enter key confirms completion item.
+				-- Enter/Tab key confirms completion item.
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
 				-- Ctrl + space triggers completion menu.
 				["<C-Space>"] = cmp.mapping.complete(),
