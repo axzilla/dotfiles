@@ -1,3 +1,6 @@
+-- Prevent overwritten text from replacing register content when pasting in visual mode
+vim.keymap.set('v', 'p', '"_dP', { noremap = true })
+
 -- Better navigation in wrapped lines
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "j", "gj")
