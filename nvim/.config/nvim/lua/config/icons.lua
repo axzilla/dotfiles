@@ -7,6 +7,7 @@ M.icons = {
 		Dots = "󰇘",
 		Macro = " ",
 		Folder = "󱃪 ",
+		File = " ",
 		LSP = " ",
 		Dot = " ",
 		Flame = " ",

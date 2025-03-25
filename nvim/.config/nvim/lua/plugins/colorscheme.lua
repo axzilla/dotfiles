@@ -4,21 +4,6 @@ return {
 		config = function()
 			require("kanagawa").setup({
 				transparent = false,
-				undercurl = true, -- Enable undercurls
-				commentStyle = { italic = true },
-				functionStyle = { bold = true },
-				keywordStyle = { italic = true },
-				statementStyle = { bold = true },
-				typeStyle = { italic = true },
-				dimInactive = false, -- Dim inactive windows
-				terminalColors = true, -- Terminal colors
-				overrides = {}, -- Custom overrides
-				background = { -- Map the value to the Lush palette color or directly override them
-					dark = "wave",
-					light = "lotus",
-				},
-				theme = "wave", -- Specify theme (default = "wave", options: "wave", "dragon", "lotus")
-				compile = false, -- Enable or disable compiling the colorscheme
 				colors = {
 					theme = {
 						all = {
@@ -29,7 +14,47 @@ return {
 					},
 				},
 			})
+			-- vim.cmd("colorscheme kanagawa-dragon")
 		end,
 	},
-	{ "ellisonleao/gruvbox.nvim" },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		opts = {
+			no_italic = true,
+			term_colors = true,
+			transparent_background = false,
+			styles = {
+				comments = {},
+				conditionals = {},
+				loops = {},
+				functions = {},
+				keywords = {},
+				strings = {},
+				variables = {},
+				numbers = {},
+				booleans = {},
+				properties = {},
+				types = {},
+			},
+			color_overrides = {
+				mocha = {
+					base = "#000000",
+					mantle = "#000000",
+					crust = "#000000",
+				},
+			},
+			integrations = {
+				-- telescope = {
+				-- 	enabled = true,
+				-- 	style = "nvchad",
+				-- },
+				dropbar = {
+					enabled = true,
+					color_mode = true,
+				},
+			},
+		},
+	},
 }

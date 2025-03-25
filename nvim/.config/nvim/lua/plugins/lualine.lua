@@ -19,8 +19,19 @@ return {
 						end,
 					},
 				},
-				lualine_b = { "branch" },
+				lualine_b = {},
 				lualine_c = {
+					"branch",
+					{
+						function()
+							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+						end,
+						icon = icons.misc.Folder,
+					},
+					{
+						"filename",
+						icon = icons.misc.File,
+					},
 					{
 						"diagnostics",
 						symbols = {
@@ -41,20 +52,16 @@ return {
 							end
 							return ""
 						end,
-						color = { fg = "Pink" },
 					},
-					{
-						function()
-							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-						end,
-					},
+					"progress",
 				},
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_y = {},
+				lualine_z = {
+					"location",
+				},
 			},
 		})
 
-		-- Toggle Lualine
 		local function toggle_lualine()
 			if vim.o.laststatus == 1 then
 				vim.o.laststatus = 3

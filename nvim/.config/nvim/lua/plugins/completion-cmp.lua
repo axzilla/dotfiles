@@ -48,23 +48,19 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
-				-- Select next and previous completion item.
+				-- Select next/previous completion item.
 				["<C-k>"] = cmp.mapping.select_prev_item(),
 				["<C-j>"] = cmp.mapping.select_next_item(),
+				["<C-p>"] = cmp.mapping.select_prev_item(),
+				["<C-n>"] = cmp.mapping.select_next_item(),
 
-				-- Close completion window.
+				-- Open/Close
 				["<C-e>"] = cmp.mapping.abort(),
+				["<C-Space>"] = cmp.mapping.complete(),
 
-				-- Scroll up and down the documentation window.
+				-- Scroll up/down documentation.
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
-
-				-- Enter/Tab key confirms completion item.
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
-
-				-- Ctrl + space triggers completion menu.
-				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			snippet = {
 				expand = function(args)

@@ -5,41 +5,7 @@ return {
 	branch = "stable",
 	event = "UIEnter",
 	config = function()
-		require("huez").setup({
-			exclude = {
-				-- exclude every neovim standard colorschemes
-				"blue",
-				"darkblue",
-				"default",
-				"delek",
-				"desert",
-				"elflord",
-				"evening",
-				"habamax",
-				"industry",
-				"koehler",
-				"lunaperche",
-				"morning",
-				"murphy",
-				"pablo",
-				"peachpuff",
-				"quiet",
-				"retrobox",
-				"ron",
-				"shine",
-				"slate",
-				"sorbet",
-				"torte",
-				"vim",
-				"wildcharm",
-				"zaibatsu",
-				"zellner",
-				"zenburn",
-				"default16",
-				"default88",
-				"default256",
-			},
-		})
+		require("huez").setup()
 
 		local pickers = require("huez.pickers")
 		vim.keymap.set("n", "<leader>tt", pickers.themes, { desc = "Color Themes" })
