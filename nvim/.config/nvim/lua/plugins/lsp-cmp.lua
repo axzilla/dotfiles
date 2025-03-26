@@ -1,3 +1,5 @@
+---@diagnostic disable-next-line: undefined-global
+local vim = vim
 local icons = require("config.icons").icons
 
 vim.filetype.add({ extension = { templ = "templ" } })
@@ -112,6 +114,31 @@ return {
 								},
 							},
 						},
+					})
+				end,
+				templ = function()
+					require("lspconfig").templ.setup({
+						capabilities = lsp_capabilities,
+					})
+				end,
+				-- tailwindcss
+				tailwindcss = function()
+					require("lspconfig").tailwindcss.setup({
+						capabilities = lsp_capabilities,
+						filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+						init_options = { userLanguages = { templ = "html" } },
+					})
+				end,
+				html = function()
+					require("lspconfig").html.setup({
+						capabilities = lsp_capabilities,
+						filetypes = { "html", "templ" },
+					})
+				end,
+				htmx = function()
+					require("lspconfig").htmx.setup({
+						capabilities = lsp_capabilities,
+						filetypes = { "html", "templ" },
 					})
 				end,
 			},
