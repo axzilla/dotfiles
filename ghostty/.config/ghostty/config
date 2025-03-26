@@ -1,12 +1,10 @@
 theme = Kanagawa Dragon
+
+font-family = JetBrainsMono NFM SemiBold
+font-feature = -calt,-liga,-dlig
+
 adjust-cell-height = 5 
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
 mouse-hide-while-typing = true
-# Disable programming ligatures
-font-feature=-calt
-# Disable standard ligatures
-font-feature=-liga
-# Disable fancy ligatures
-font-feature=-dlig
