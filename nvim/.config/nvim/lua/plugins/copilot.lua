@@ -20,11 +20,6 @@ return {
 					},
 				},
 				panel = { enabled = false },
-				filetypes = {
-					-- because of RPC error in grug-far
-					["grug-far"] = false,
-					["grug-far-history"] = false,
-				},
 			})
 		end,
 	},
