@@ -1,5 +1,5 @@
 -- Prevent overwritten text from replacing register content when pasting in visual mode
-vim.keymap.set('v', 'p', '"_dP', { noremap = true })
+vim.keymap.set("v", "p", '"_dP', { noremap = true })
 
 -- Better navigation in wrapped lines
 vim.keymap.set("n", "k", "gk")
@@ -64,45 +64,45 @@ vim.keymap.set("v", "<A-k>", ":'<,'>move '<-2<CR>gv=gv", { desc = "Move Up", sil
 
 -- Toggle Whitespace Chars
 local function toggle_listchars()
-	if vim.opt.list:get() then
-		vim.opt.list = false
-		vim.notify("Listchars disabled")
-	else
-		vim.opt.list = true
-		vim.wo.listchars = "space:·,tab:→ "
-		vim.notify("Listchars enabled")
-	end
+  if vim.opt.list:get() then
+    vim.opt.list = false
+    vim.notify("Listchars disabled")
+  else
+    vim.opt.list = true
+    vim.wo.listchars = "space:·,tab:→ "
+    vim.notify("Listchars enabled")
+  end
 end
 vim.keymap.set("n", "<leader>uw", toggle_listchars, { desc = "Toggle Whitespace Chars" })
 
 -- Toggle Colorcolumns
 local function toggle_colorcolumn()
-	if vim.wo.colorcolumn == "" then
-		-- First Option: only 100
-		vim.wo.colorcolumn = "100"
-		vim.notify("ColorColumn: 100")
-	elseif vim.wo.colorcolumn == "100" then
-		-- Second Option: 80 and 100
-		vim.wo.colorcolumn = "80,100"
-		vim.notify("ColorColumn: 80,100")
-	else
-		-- Off
-		vim.wo.colorcolumn = ""
-		vim.notify("ColorColumn disabled")
-	end
+  if vim.wo.colorcolumn == "" then
+    -- First Option: only 100
+    vim.wo.colorcolumn = "100"
+    vim.notify("ColorColumn: 100")
+  elseif vim.wo.colorcolumn == "100" then
+    -- Second Option: 80 and 100
+    vim.wo.colorcolumn = "80,100"
+    vim.notify("ColorColumn: 80,100")
+  else
+    -- Off
+    vim.wo.colorcolumn = ""
+    vim.notify("ColorColumn disabled")
+  end
 end
 vim.keymap.set("n", "<leader>um", toggle_colorcolumn, { desc = "Toggle ColorColumn" })
 
 -- Toggle Copilot
 local copilot_on = true
 vim.api.nvim_create_user_command("CopilotToggle", function()
-	if copilot_on then
-		vim.cmd("Copilot disable")
-		vim.notify("Copilot OFF")
-	else
-		vim.cmd("Copilot enable")
-		vim.notify("Copilot ON")
-	end
-	copilot_on = not copilot_on
+  if copilot_on then
+    vim.cmd("Copilot disable")
+    vim.notify("Copilot OFF")
+  else
+    vim.cmd("Copilot enable")
+    vim.notify("Copilot ON")
+  end
+  copilot_on = not copilot_on
 end, { nargs = 0 })
 vim.keymap.set("n", "<leader>ua", ":CopilotToggle<CR>", { desc = "Toggle Copilot", silent = true })
