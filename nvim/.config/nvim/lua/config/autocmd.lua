@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   command = "checktime",
 })
 -- Notify when a file is changed on disk
-im.api.nvim_create_autocmd("FileChangedShellPost", {
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
   callback = function()
     vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.INFO)
   end,
