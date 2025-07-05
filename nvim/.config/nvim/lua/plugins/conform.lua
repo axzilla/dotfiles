@@ -19,7 +19,7 @@ return {
         liquid = { "prettierd" },
         -- lua = { "stylua" },
         html = { "prettierd" },
-        templ = { "templ" },
+        templ = { "templ", },
         go = { "goimports", "gopls" },
       },
       format_on_save = {

@@ -75,34 +75,16 @@ local function toggle_listchars()
 end
 vim.keymap.set("n", "<leader>uw", toggle_listchars, { desc = "Toggle Whitespace Chars" })
 
--- Toggle Colorcolumns
-local function toggle_colorcolumn()
-  if vim.wo.colorcolumn == "" then
-    -- First Option: only 100
-    vim.wo.colorcolumn = "100"
-    vim.notify("ColorColumn: 100")
-  elseif vim.wo.colorcolumn == "100" then
-    -- Second Option: 80 and 100
-    vim.wo.colorcolumn = "80,100"
-    vim.notify("ColorColumn: 80,100")
-  else
-    -- Off
-    vim.wo.colorcolumn = ""
-    vim.notify("ColorColumn disabled")
-  end
-end
-vim.keymap.set("n", "<leader>um", toggle_colorcolumn, { desc = "Toggle ColorColumn" })
-
--- Toggle Copilot
-local copilot_on = true
-vim.api.nvim_create_user_command("CopilotToggle", function()
-  if copilot_on then
-    vim.cmd("Copilot disable")
-    vim.notify("Copilot OFF")
-  else
-    vim.cmd("Copilot enable")
-    vim.notify("Copilot ON")
-  end
-  copilot_on = not copilot_on
-end, { nargs = 0 })
-vim.keymap.set("n", "<leader>ua", ":CopilotToggle<CR>", { desc = "Toggle Copilot", silent = true })
+-- -- Toggle Copilot
+-- local copilot_on = true
+-- vim.api.nvim_create_user_command("CopilotToggle", function()
+--   if copilot_on then
+--     vim.cmd("Copilot disable")
+--     vim.notify("Copilot OFF")
+--   else
+--     vim.cmd("Copilot enable")
+--     vim.notify("Copilot ON")
+--   end
+--   copilot_on = not copilot_on
+-- end, { nargs = 0 })
+-- vim.keymap.set("n", "<leader>ua", ":CopilotToggle<CR>", { desc = "Toggle Copilot", silent = true })
