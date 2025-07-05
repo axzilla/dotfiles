@@ -17,6 +17,9 @@ return {
 		local lspkind = require("lspkind")
 
 		cmp.setup({
+			completion = {
+				autocomplete = false,
+			},
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
